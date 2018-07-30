@@ -1,0 +1,32 @@
+#mainnav {
+    height: 100vh;
+}
+
+.homelink {
+    font-size: 45px;
+}
+
+.logospot {
+    position: absolute;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.logo:visited {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.popup {
+    opacity: 0.5;
+    display: inline;
+    position: absolute;
+    width: 100px;
+    margin: -80px 25px;
+    display: none;
+}
+
+
+
+.homelink:hover .popup, .homelink:active .popup{
+	display: inline;
+}

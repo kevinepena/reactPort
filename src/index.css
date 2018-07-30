@@ -1,0 +1,39 @@
+body {
+margin: 0; 
+margin: 0;
+padding: 0;
+font-family: sans-serif;
+background-color: #e7e7ef;
+overflow: hidden;
+/* background-image: url("pics/cloudshor.png"); */
+}
+
+.One {
+  overflow: hidden;
+  display: inline;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%); 
+  left: 400%;
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+}
+
+#box:hover {
+  -webkit-animation-play-state: paused;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+      margin-left: 0;
+  }
+  100% {
+      margin-left: -400px;
+  }
+}
+
+/* background: linear-gradient(#75ACDD, #e7e7ef); */
+/* 
+<img src="assets/pics/cloudshor.png" alt="clouds" style={{ height: '100vh' }} /> */

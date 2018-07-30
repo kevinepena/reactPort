@@ -1,0 +1,110 @@
+.Typist {
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 70px;
+    letter-spacing: -0.07ex;
+    animation: anim 1.5s infinite alternate ease-in-out;
+    padding-left: 20px;
+}
+/*           
+@keyframes anim {
+from {
+  text-shadow: 0 0 10px transparent;
+}
+to {
+  text-shadow: 0 28px 50px rgba(0, 0, 0, 0.8);
+}} */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC|Geo|Permanent+Marker|Schoolbell|Special+Elite');
+
+#name {
+font-family: 'Schoolbell';
+}
+
+#dev {
+/* font-family: 'Permanent Marker', cursive; */
+font-family: 'Special Elite', cursive;
+}
+
+#ent {
+font-family: 'Abel', sans-serif;
+/* font-family: 'Geo', sans-serif; */
+}
+
+.link {
+padding: 0 50px 0px 50px;
+text-decoration: none;
+font-size: 40px;
+font-family: 'Special Elite', cursive;
+
+}
+
+.link:visited {
+color: rgba(255, 255, 255, 0.6);
+}
+
+#navbar {
+display: inline;
+}
+
+.logo {
+display: inline;
+text-decoration: none;
+}
+
+.logo:visited {
+
+color: rgba(255, 255, 255, 0.6);
+}
+
+.links {
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.mobile {
+
+padding: 10vh 0 0 0;
+text-align: center;
+color: rgba(255, 255, 255, 0.6);
+text-decoration: none;
+font-family: 'Special Elite', cursive;
+display: block;
+position: relative;
+margin: 0 auto;
+font-size: 40px;
+
+}
+
+.mobile:visited {
+color: rgba(255, 255, 255, 0.6);
+text-decoration: none;
+font-family: 'Special Elite', cursive;
+}
+
+.home {
+  display: block;
+  margin: 0 auto;
+  font-size: 40px;
+  position: relative;
+}
+
+.homelink:visited {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-family: 'Special Elite', cursive;
+}
+
+.homelink {
+  display: block;
+  margin: 3vh 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-family: 'Special Elite', cursive;
+  z-index: 999;
+}

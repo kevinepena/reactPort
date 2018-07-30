@@ -1,0 +1,52 @@
+import React, { Component } from "react";
+import Typist from 'react-typist';
+import "./Section.css";
+import { NavLink } from 'react-router-dom';
+
+const Section = props => (
+
+    <nav id="mainnav">
+
+
+
+        <NavLink to='/about' className="homelink"><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>About</NavLink>
+        <br />
+        <NavLink to='/gallery' className="homelink"><span><img src="assets/pics/gallerybitmoji.png" className="popup" /></span>Gallery</NavLink>
+        <br />
+        <NavLink to='/contact' className="homelink" ><span><img src="assets/pics/contactbitmoji.png" className="popup" /></span>Contact</NavLink>
+
+
+    </nav>
+
+
+
+);
+
+export default Section;
+
+
+
+
+
+
+// <Typist  
+// cursor={{ show: false }}>
+//     <Typist.Delay ms={2500} />
+//     <span id="name">Kevin Peña</span> 
+//     <Typist.Backspace count={10} delay={1500} />
+//     <span id="dev" >Develper</span>
+//     <Typist.Backspace count={8} delay={1500} />
+//     <span id="ent">Entrepreneur</span>
+//     <Typist.Backspace count={12} delay={1500} />
+//     <NavLink to='/' className="navbar-brand logo"><span id="name">KP: </span></NavLink>
+
+// </Typist>
+
+// {props.winWidth <= 768 ? "" : <br/> }
+// <Typist cursor={{ show: false }} className = {props.winWidth <= 768 ? "links" : "mobile" }>
+//     <NavLink to='/about' className = {props.winWidth <= 768 ? "link" : "mobile" }>About</NavLink>
+//     {props.winWidth <= 768 ? "" : <br/> }
+//     <NavLink to='/gallery' className = {props.winWidth <= 768 ? "link" : "mobile" } >Gallery</NavLink>
+//     {props.winWidth <= 768 ? "" : <br/> }
+//     <NavLink to='/contact' className = {props.winWidth <= 768 ? "link" : "mobile" } >Contact</NavLink>
+// </Typist>

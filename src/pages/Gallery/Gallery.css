@@ -1,0 +1,30 @@
+.fixed {
+
+    width: 100%;
+    position: absolute;
+    display: inline;
+    overflow: auto;
+}
+
+.gallery {
+    width: 400%;
+    
+}
+
+.parallax  {
+
+    width: 7%;
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
+}
+.parallax:hover {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+}
+
