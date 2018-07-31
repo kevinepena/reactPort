@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Clouds from "./pages/Clouds";
 import About from "./pages/About";
@@ -12,7 +13,9 @@ import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 import HiddenNav from "./components/HiddenNav";
 import Section from "./components/Section";
-import preloaderImage from "./logo.svg"
+import preloaderImage from "./logo.svg";
+import ScrollView, { ScrollElement } from "./scroller";
+
 
 const duration = 300;
 
@@ -27,6 +30,8 @@ const transitionStyles = {
 
 
 class App extends Component {
+
+
 
   constructor(props) {
     super(props);
@@ -131,7 +136,7 @@ class App extends Component {
     const pxPastStartFade = scrolly - startFade;
     const navOpacity = pxPastStartFade / (endFade - startFade);
     this.setState({ navOpacity });
-    console.log(navOpacity)
+
   }
 
 
@@ -150,10 +155,16 @@ class App extends Component {
     }
   }
 
+  scrollTo = (name) => {
+    console.log(name)
+    this._scroller.scrollTo(name);
+  }
+
 
   render() {
 
 
+    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images} />, name: "Gallery" }, { item: <Contact />, name: "Contact" }]
 
 
     return (
@@ -161,13 +172,38 @@ class App extends Component {
       <Router>
         <div>
           <div>
-          <Clouds />
+            <Clouds />
           </div>
-          <Nav  opacity={ this.state.navOpacity } borderBottomWidth={ this.props.bottomBorderWidth } />
+          <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} />
           <div id="all">
-            <Section />
-            <About />
-            <Gallery images={this.state.images} />
+            <nav id="mainnav">
+
+              <ul>
+                {
+                  items.map(({ name }) => <li className="homelink" onClick={() => this.scrollTo(name)}><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>{name}</li>)
+                }
+                {/* <NavLink to='/about' className="homelink" onClick={() => this.scrollTo(About)}><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>About</NavLink>
+              <br />
+              <NavLink to='/gallery' className="homelink"><span><img src="assets/pics/gallerybitmoji.png" className="popup" /></span>Gallery</NavLink>
+              <br />
+              <NavLink to='/contact' className="homelink" ><span><img src="assets/pics/contactbitmoji.png" className="popup" /></span>Contact</NavLink> */}
+
+              </ul>
+            </nav>
+            <ScrollView ref={scroller => this._scroller = scroller}>
+              <div className="scroller">
+                {items.map(({ name, item }) => {
+                  return (
+                    <ScrollElement name={name}>
+
+                      {item}
+
+                    </ScrollElement>
+                  );
+                })}
+              </div>
+            </ScrollView>
+
           </div>
         </div>
       </Router>

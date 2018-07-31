@@ -23,6 +23,7 @@
     "react-sticky": "^6.0.3",
     "react-transition-group": "^2.4.0",
     "react-typist": "^2.0.4",
+    "scroll-into-view": "^1.9.3",
     "simple-line-icons": "^2.4.1"
   },
   "scripts": {

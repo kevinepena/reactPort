@@ -1,8 +1,7 @@
 .fixed {
 
     width: 100%;
-    position: absolute;
-    display: inline;
+
     overflow: auto;
 }
 
