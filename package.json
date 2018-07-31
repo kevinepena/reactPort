@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "animejs": "^2.2.0",
+    "axios": "^0.18.0",
     "charming": "^2.2.4",
     "prop-types": "^15.6.2",
     "raf": "^3.4.0",
