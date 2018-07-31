@@ -115,12 +115,21 @@ class App extends Component {
   }
 
   updateNavOpacity() {
+    var winHeight = window.innerHeight;
+
     const navbarHeight = 50; // Bootstrap default
     const { bottomBorderWidth, headerHeight, fadeInDistance } = this.props;
     const endFade = headerHeight - navbarHeight - bottomBorderWidth;
     const startFade = endFade - fadeInDistance;
     const scrolly = window.scrollY;
 
+    const firststop = (winHeight);
+
+
+    this.setState({ firststop });
+    this.setState({ scrolly });
+
+console.log(scrolly)
     if (scrolly < startFade) {
       if (this.state.opacity === 0) return;
       this.setState({ navOpacity: 0 });
@@ -133,6 +142,13 @@ class App extends Component {
       return;
     }
 
+    if (this.state.scrolly >= this.state.firststop) {
+      this.setState({ show: true });
+    }
+
+    if (this.state.scrolly <= this.state.firststop) {
+      this.setState({ show: false });
+    }
     const pxPastStartFade = scrolly - startFade;
     const navOpacity = pxPastStartFade / (endFade - startFade);
     this.setState({ navOpacity });
@@ -161,18 +177,26 @@ class App extends Component {
   }
 
 
+
+
   render() {
 
 
-    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images} />, name: "Gallery" }, { item: <Contact />, name: "Contact" }]
+    const items = [{ item: <About />, name: "About" }, { item: <Gallery />, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
 
+    const mobileView = {
+      width: "100%",
+      margin: "0 auto"
+    }
+
+    const bitmoji = ["assets/pics/hellobitmoji.png", "assets/pics/gallerybitmoji.png", "assets/pics/contactbitmoji.png"];
 
     return (
 
       <Router>
         <div>
           <div>
-            <Clouds />
+            <Clouds images={this.state.images} />
           </div>
           <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} />
           <div id="all">
@@ -180,7 +204,7 @@ class App extends Component {
 
               <ul>
                 {
-                  items.map(({ name }) => <li className="homelink" onClick={() => this.scrollTo(name)}><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>{name}</li>)
+                  items.map(({ name }, index) => <li className="homelink" onClick={() => this.scrollTo(name)}><span><img src={bitmoji[index]} className="popup" /></span>{name}</li>)
                 }
                 {/* <NavLink to='/about' className="homelink" onClick={() => this.scrollTo(About)}><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>About</NavLink>
               <br />

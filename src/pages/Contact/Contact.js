@@ -4,37 +4,81 @@ import Fade from 'react-reveal/Fade';
 import "./Contact.css";
 import Nav from "../../components/Nav";
 import { StickyContainer, Sticky } from 'react-sticky';
+import axios from "axios";
 
- 
 class Contact extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
+        this.state = { name: '', email: '', gif: '', gifs: [] };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
+        this.handleGifSubmit = this.handleGifSubmit.bind(this)
     }
 
     handleChange(event) {
-        this.setState({ value: event.target.value });
-    }
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
 
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+    handleEmailSubmit(event) {
+        alert('A name was submitted: ' + this.state);
         event.preventDefault();
     }
 
+    handleGifSubmit(event) {
+        event.preventDefault();
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=IBWSeiwHQf0G4PKRWdLB1h8M4WDjcKLX&q=${this.state.gif}&limit=25&offset=0&lang=en`)
+        .then(res => {
+            this.setState({gifs: res.data.data})
+            console.log(this.state.gifs)})
+        .catch(err => console.log(err))
+    }
+
+
+
     render() {
         return (
-            <div>
-        
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
+            <div id="form">
+
+
+                <section id="emailForm">
+                    <h1>Shoot me a message </h1>
+                    <form onSubmit={this.handleEmailSubmit}>
+                        <label>
+                            Name:
+            <input type="text" value={this.state.name} onChange={this.handleChange} name="name" />
+                        </label>
+                        <label>
+                            Email:
+            <input type="text" value={this.state.email} onChange={this.handleChange} name="email" />
+                        </label>
+                        <br />
+                        <label>
+                            Words of encouragement:
+          <textarea value={this.state.value} onChange={this.handleChange} />
+                        </label>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </section>
+                <section id="giphyform">
+                <div id="gifArea">
+                {(this.state.gifs === "") ? "Search Giphy!" : (this.state.gifs.map(jif => <img src={jif.url} />))}
+                </div>
+                    <h1>Send me a gif</h1>
+                    <form onSubmit={this.handleGifSubmit}>
+                        <label>
+                            Search:
+            <input type="text" value={this.state.gif} onChange={this.handleChange} name="gif" />
+                        </label>
+                
+
+                        <input type="submit" value="Submit" />
+                    </form>
+                </section>
+
             </div>
         );
     }

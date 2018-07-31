@@ -12,7 +12,12 @@ class One extends Component {
 
     return (
       <div >
-        <img className="One" src="assets/pics/cloudshor.png" />
+
+        {this.props.images.map(image => (
+
+          <img className="One" src={image.src} />
+
+        ))}
       </div>
 
     )
