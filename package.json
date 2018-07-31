@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "Kevin Peña",
   "private": true,
-  "proxy": "http://localhost:3001/",
   "dependencies": {
     "animejs": "^2.2.0",
     "charming": "^2.2.4",

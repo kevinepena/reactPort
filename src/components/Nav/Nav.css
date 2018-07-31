@@ -59,7 +59,7 @@ color: rgba(255, 255, 255, 0.6);
 }
 
 .links {
-  position: absolute;
+  position: fixed;
   top: 0;
   margin: 0 auto;
   text-align: center;

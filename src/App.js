@@ -80,7 +80,7 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
-    window.addEventListener('scroll', this.updateNavOpacity);
+    document.getElementById("all").addEventListener('scroll', this.updateNavOpacity);
   }
 
   handleResize() {
@@ -136,7 +136,7 @@ console.log(scrolly)
       return;
     }
 
-    if (scrolly > endFade) {
+    if (scrolly > 1) {
       if (this.state.opacity === 1) return;
       this.setState({ navOpacity: 1 });
       return;
@@ -198,8 +198,8 @@ console.log(scrolly)
           <div>
             <Clouds images={this.state.images} />
           </div>
-          <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} />
-          <div id="all">
+
+          <div id="all" onScroll={this.updateNavOpacity}>
             <nav id="mainnav">
 
               <ul>
@@ -214,6 +214,7 @@ console.log(scrolly)
 
               </ul>
             </nav>
+            <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} />
             <ScrollView ref={scroller => this._scroller = scroller}>
               <div className="scroller">
                 {items.map(({ name, item }) => {
