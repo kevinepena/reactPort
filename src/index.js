@@ -10,7 +10,7 @@ var images = [
     "assets/pics/IMG_9059.JPG",
     "assets/pics/IMG_1162.png",
     "assets/pics/IMG_4143.JPG",
-    "assets/pics/IMG_4271.JPG",
+    // "assets/pics/IMG_4271.JPG",
     "assets/pics/IMG_4533.JPG",
     "assets/pics/IMG_4554.JPG",
     "assets/pics/IMG_5071.JPG",

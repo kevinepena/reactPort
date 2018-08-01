@@ -4,12 +4,20 @@ import Fade from 'react-reveal/Fade';
 import "./About.css";
 import Nav from "../../components/Nav";
 import { StickyContainer, Sticky } from 'react-sticky';
-
+import { Carousel } from "react-responsive-carousel";
 
 class About extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            images: ["assets/pics/IMG_1745.png",
+                "assets/pics/IMG_4554.JPG",
+                "assets/pics/IMG_5071.JPG",
+                "assets/pics/IMG_5090.JPG",
+                "assets/pics/IMG_4641.JPG",
+                "assets/pics/IMG_4344.JPG"],
+        }
         this.checkWidth = this.checkWidth.bind(this);
     }
 
@@ -18,9 +26,17 @@ class About extends Component {
     }
 
 
+
     render() {
 
-       
+
+
+        const carousel = this.state.images.forEach((elem, index) => {
+            <div>
+                <img src={elem} />
+                <p className="legend">Legend {index} </p>
+            </div>
+        });
 
         return (
             <div>
@@ -33,13 +49,23 @@ class About extends Component {
                 }}>
 
 
-                    <Fade left>
+                    {/* <Fade left> */}
+
+                    <Carousel >
+
+                        {carousel}
+
+                    </Carousel>
+                    {/* <div className="slidecontainer">
+                
+                        </div>
+
                         <img src="assets/pics/IMG_1745.png" id="me" style={{
                             width: "200px",
                             height: "350px",
                             borderRadius: "20px"
-                        }} />
-                    </Fade>
+                        }} /> */}
+                    {/* </Fade> */}
 
                     <Fade right
                         style={{ float: "right" }}>

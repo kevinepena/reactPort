@@ -8,17 +8,42 @@
     font-family: "raleway"
 }
 
+/* input[type="text"] {
+    width: 50%;
+} */
+
 input[type="text"], textarea {
     font-family: 'Special Elite';
     color: white;
     background-color: black;
     border: none;
+    height: 20px;
 
 }
 
-/* textarea {
-    font-family: 'Special Elite';
-    color: white;
-    background-color: black;
-    border: none;
-} */
+textarea {
+width: 95%;
+margin: 10px
+}
+
+.name {
+    width: 45%;
+}
+
+.email {
+    width: 45%;
+}
+
+.qcc {
+    width: 100%;
+
+}
+
+label {
+    margin: 5px auto;
+}
+
+#gifArea {
+    height: 200px;
+    overflow: scroll;
+}
