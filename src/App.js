@@ -78,6 +78,12 @@ class App extends Component {
       primaryImage.src = src // do it after you set onload handler
     })
 
+    // axios
+    // .get('https://res.cloudinary.com/matsi/image/list/nica.json')
+    // .then(res => {
+    //     this.setState({ gallery: res.data.resources });
+    // });
+
   }
 
   componentDidMount() {
@@ -189,14 +195,14 @@ class App extends Component {
   render() {
 
 
-    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images} winWidth={this.state.winWidth}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
+    const items = [{ item: <About winWidth={this.state.winWidth} />, name: "About" }, { item: <Gallery images={this.state.images} winWidth={this.state.winWidth}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
 
     const mobileView = {
       width: "100%",
       margin: "0 auto"
     }
 
-    const bitmoji = ["assets/pics/hellobitmoji.png", "assets/pics/gallerybitmoji.png", "assets/pics/contactbitmoji.png"];
+    const bitmoji = ["assets/pics/bitmoji/hellobitmoji.png", "assets/pics/bitmoji/gallerybitmoji.png", "assets/pics/bitmoji/contactbitmoji.png"];
 
     return (
 

@@ -28,7 +28,7 @@ padding: 0;
 font-family: sans-serif;
 background-image: linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%);
 background-attachment: fixed;
-/* overflow: hidden; */
+overflow: hidden;
 /* background-image: url("pics/cloudshor.png"); */
 }
 

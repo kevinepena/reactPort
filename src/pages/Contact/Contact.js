@@ -5,6 +5,8 @@ import "./Contact.css";
 import Nav from "../../components/Nav";
 import { StickyContainer, Sticky } from 'react-sticky';
 import axios from "axios";
+import { Col, Row, Container } from "../../components/Grid";
+import { Input, FormBtn } from "../../components/Form";
 
 class Contact extends React.Component {
     constructor(props) {
@@ -30,67 +32,112 @@ class Contact extends React.Component {
     };
 
     handleEmailSubmit(event) {
-        alert('A name was submitted: ' + this.state);
+        alert('A name was submitted: ' + this.state.name);
         event.preventDefault();
-        this.setState({name: '', email: '', textarea: ''})
+        this.setState({ name: '', email: '', textarea: '' })
     }
 
     handleGifSubmit(event) {
         event.preventDefault();
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=IBWSeiwHQf0G4PKRWdLB1h8M4WDjcKLX&q=${this.state.gif}&limit=25&offset=0&lang=en`)
-        .then(res => {
-            this.setState({gifs: res.data.data})
-            console.log(this.state.gifs)})
-        .catch(err => console.log(err));
+            .then(res => {
+                this.setState({ gifs: res.data.data })
+                console.log(this.state.gifs)
+            })
+            .catch(err => console.log(err));
 
-        this.setState({gif: ""})
+        this.setState({ gif: "" })
     }
 
 
 
     render() {
         return (
-            <div id="form" >
 
+            <Container fluid  >
 
-                <section id="emailForm">
-                    <h1>Shoot me a message </h1>
-                    <form onSubmit={this.handleEmailSubmit}>
-                        <label className="name">
-                            Name:
+                <Row >
+                    <div id="form">
+                        <Col size="md-6 sm-12" id="emailForm">
+
+                            <h1>Shoot me a message </h1>
+                            <form >
+                                {/* <label className="name">
+                                Name:
             <input type="text" value={this.state.name} onChange={this.handleChange} name="name" />
-                        </label>
-                        <label className="email">
-                            Email: 
+                            </label>
+                            <label className="email">
+                                Email:
             <input type="text" value={this.state.email} onChange={this.handleChange} name="email" />
-                        </label>
-                        <br />
-                        <label className="qcc">
-                            Questions, Comments, Concerns:
+                            </label>
                             <br />
-          <textarea type="text" value={this.state.textarea} onChange={this.handleChange} name="textarea" />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </section>
-                <section id="giphyform">
-                <div id="gifArea">
-                
-                {(this.state.gifs == "") ? (<img style={{width: "100%"}} src="assets/pics/giphylogo.png" />) : (this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />))}
-                </div>
-                    <h1>Send me a gif</h1>
-                    <form onSubmit={this.handleGifSubmit}>
-                        <label>
-                            Search:
+                            <label className="qcc">
+                                Questions, Comments, Concerns:
+                            <br />
+                                <textarea type="text" value={this.state.textarea} onChange={this.handleChange} name="textarea" />
+                            </label>
+                            <input type="submit" value="Submit" /> */}
+
+                                <Input
+                                    value={this.state.name}
+                                    onChange={this.handleChange}
+                                    name="name"
+                                    placeholder="Name"
+                                />
+                                <Input
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    name="email"
+                                    placeholder="Email"
+                                />
+                                <Input
+                                    value={this.state.textarea}
+                                    onChange={this.handleChange}
+                                    name="textarea"
+                                    placeholder="Questions, Comments, Inquiries?"
+                                />
+                                <FormBtn
+                                    disabled={!(this.state.name || this.state.email)}
+                                    onClick={this.handleEmailSubmit}
+                                >
+                                    Submit
+                                </FormBtn>
+                            </form>
+
+                        </Col>
+                        <Col size="md-6 sm-12" id="giphyform">
+
+                            <div id="gifArea">
+
+                                {(this.state.gifs == "") ? (<img style={{ width: "300px" }} src="assets/pics/giphylogo.png" />) : (this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />))}
+                            </div>
+                            <h1>Send me a gif</h1>
+                            <form >
+                                {/* <label>
+                                        Search:
             <input type="text" value={this.state.gif} onChange={this.handleChange} name="gif" />
-                        </label>
-                
+                                    </label>
+                                    <input type="submit" value="Submit" /> */}
 
-                        <input type="submit" value="Submit" />
-                    </form>
-                </section>
+                                <Input
+                                    value={this.state.gif}
+                                    onChange={this.handleChange}
+                                    name="gif"
+                                    placeholder="Search Giphy"
+                                />
+                                <FormBtn
+                                    disabled={!(this.state.gif)}
+                                    onClick={this.handleGifSubmit}
+                                >
+                                    Search
+                                </FormBtn>
+                            </form>
 
-            </div>
+                        </Col>
+                    </div>
+                </Row>
+            </Container>
+
         );
     }
 }

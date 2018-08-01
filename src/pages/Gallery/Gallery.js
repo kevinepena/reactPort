@@ -25,7 +25,7 @@ class Gallery extends Component {
                 <h1 style={{position: "absolute", fontFamily: 'Raleway',}}> Gallery </h1>
                 <div className="gallery">
 
-                    {this.props.images.map(image => (
+                    {this.props.images.map((image) => (
                         <div className="frame" style={{display: this.state.display}} >
                         <img className="parallax" src={image.src} />
                         </div>

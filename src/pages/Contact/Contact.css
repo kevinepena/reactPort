@@ -21,7 +21,7 @@ input[type="text"], textarea {
 
 }
 
-textarea {
+/* textarea {
 width: 95%;
 margin: 10px
 }
@@ -41,7 +41,7 @@ margin: 10px
 
 label {
     margin: 5px auto;
-}
+} */
 
 #gifArea {
     height: 200px;
