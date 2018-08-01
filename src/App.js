@@ -189,7 +189,7 @@ class App extends Component {
   render() {
 
 
-    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
+    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images} winWidth={this.state.winWidth}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
 
     const mobileView = {
       width: "100%",

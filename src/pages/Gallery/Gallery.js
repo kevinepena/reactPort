@@ -6,7 +6,18 @@ import "./Gallery.css"
 
 class Gallery extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {display: (this.props.winWidth > 768) ? "inline" : ""}
+    }
+
+
+
+
+
     render() {
+
+
 
         return (
             <div className="fixed" >
@@ -15,9 +26,9 @@ class Gallery extends Component {
                 <div className="gallery">
 
                     {this.props.images.map(image => (
-
+                        <div className="frame" style={{display: this.state.display}} >
                         <img className="parallax" src={image.src} />
-
+                        </div>
                     ))}
 
                 </div>

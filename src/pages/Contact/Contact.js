@@ -61,7 +61,7 @@ class Contact extends React.Component {
                         <br />
                         <label>
                             Questions, Comments, Concerns:
-          <textarea value={this.state.textarea} onChange={this.handleChange} />
+          <textarea type="text" value={this.state.textarea} onChange={this.handleChange} name="textarea" />
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
