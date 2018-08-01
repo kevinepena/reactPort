@@ -15,6 +15,8 @@ import HiddenNav from "./components/HiddenNav";
 import Section from "./components/Section";
 import preloaderImage from "./logo.svg";
 import ScrollView, { ScrollElement } from "./scroller";
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 
 const duration = 300;
@@ -80,7 +82,7 @@ class App extends Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
-    document.getElementById("all").addEventListener('scroll', this.updateNavOpacity);
+    document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
   }
 
   handleResize() {
@@ -96,17 +98,17 @@ class App extends Component {
     const firststop = (winHeight * .15) * 5.65;
 
 
-    this.setState({ firststop });
-    this.setState({ scrolly });
-    this.setState({ winWidth })
+    // this.setState({ firststop });
+    // this.setState({ scrolly });
+    // this.setState({ winWidth })
 
-    if (this.state.scrolly >= this.state.firststop) {
-      this.setState({ show: true });
-    }
+    // if (this.state.scrolly >= this.state.firststop) {
+    //   this.setState({ show: true });
+    // }
 
-    if (this.state.scrolly <= this.state.firststop) {
-      this.setState({ show: false });
-    }
+    // if (this.state.scrolly <= this.state.firststop) {
+    //   this.setState({ show: false });
+    // }
 
     var value = document.body.scrollTop;
     console.log(firststop);
@@ -122,14 +124,22 @@ class App extends Component {
     const endFade = headerHeight - navbarHeight - bottomBorderWidth;
     const startFade = endFade - fadeInDistance;
     const scrolly = window.scrollY;
-
     const firststop = (winHeight);
-
 
     this.setState({ firststop });
     this.setState({ scrolly });
 
-console.log(scrolly)
+    var el = document.getElementById('all');
+    var minPixel = el.offsetTop;
+    var maxPixel = minPixel + el.scrollHeight;
+    var value = document.body.scrollTop;
+
+    // respect bounds of element
+    var percent = (value - minPixel) / (maxPixel - minPixel);
+    percent = Math.min(1, Math.max(percent, 0)) * 100;
+
+    console.log(percent)
+
     if (scrolly < startFade) {
       if (this.state.opacity === 0) return;
       this.setState({ navOpacity: 0 });
@@ -156,10 +166,7 @@ console.log(scrolly)
   }
 
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-    window.removeEventListener('scroll', this.updateNavOpacity);
-  }
+
 
   renderNavigation() {
     console.log(this.state.winWidth)
@@ -182,7 +189,7 @@ console.log(scrolly)
   render() {
 
 
-    const items = [{ item: <About />, name: "About" }, { item: <Gallery />, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
+    const items = [{ item: <About />, name: "About" }, { item: <Gallery images={this.state.images}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
 
     const mobileView = {
       width: "100%",
@@ -195,11 +202,11 @@ console.log(scrolly)
 
       <Router>
         <div>
-          <div>
-            <Clouds images={this.state.images} />
-          </div>
 
-          <div id="all" onScroll={this.updateNavOpacity}>
+
+          <div id="all"
+          //  onScroll={this.updateNavOpacity}
+          >
             <nav id="mainnav">
 
               <ul>
@@ -214,7 +221,7 @@ console.log(scrolly)
 
               </ul>
             </nav>
-            <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} />
+            {/* <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} /> */}
             <ScrollView ref={scroller => this._scroller = scroller}>
               <div className="scroller">
                 {items.map(({ name, item }) => {
@@ -229,6 +236,10 @@ console.log(scrolly)
               </div>
             </ScrollView>
 
+          </div>
+
+          <div style={{ overflow: "hidden" }}>
+            <Clouds images={this.state.images} />
           </div>
         </div>
       </Router>

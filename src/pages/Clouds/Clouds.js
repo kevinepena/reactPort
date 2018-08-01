@@ -13,11 +13,10 @@ class One extends Component {
     return (
       <div >
 
-        {this.props.images.map(image => (
+       
+          <img className="One" src={this.props.images[0].src} />
 
-          <img className="One" src={image.src} />
-
-        ))}
+  
       </div>
 
     )

@@ -27,7 +27,8 @@ margin: 0;
 padding: 0;
 font-family: sans-serif;
 background-image: linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%);
-overflow: hidden;
+background-attachment: fixed;
+/* overflow: hidden; */
 /* background-image: url("pics/cloudshor.png"); */
 }
 
@@ -60,6 +61,9 @@ overflow: hidden;
 ul {
   padding: 0
 }
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:600|Source+Sans+Pro');
+
 /* background: linear-gradient(#75ACDD, #e7e7ef); */
 /* 
 <img src="assets/pics/cloudshor.png" alt="clouds" style={{ height: '100vh' }} /> */

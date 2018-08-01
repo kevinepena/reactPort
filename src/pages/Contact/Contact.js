@@ -9,7 +9,7 @@ import axios from "axios";
 class Contact extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: '', email: '', gif: '', gifs: [] };
+        this.state = { name: '', email: '', textarea: '', gif: '', gifs: [] };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
@@ -26,6 +26,7 @@ class Contact extends React.Component {
     handleEmailSubmit(event) {
         alert('A name was submitted: ' + this.state);
         event.preventDefault();
+        this.setState({name: '', email: '', textarea: ''})
     }
 
     handleGifSubmit(event) {
@@ -34,14 +35,16 @@ class Contact extends React.Component {
         .then(res => {
             this.setState({gifs: res.data.data})
             console.log(this.state.gifs)})
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
+
+        this.setState({gif: ""})
     }
 
 
 
     render() {
         return (
-            <div id="form">
+            <div id="form" >
 
 
                 <section id="emailForm">
@@ -57,15 +60,15 @@ class Contact extends React.Component {
                         </label>
                         <br />
                         <label>
-                            Words of encouragement:
-          <textarea value={this.state.value} onChange={this.handleChange} />
+                            Questions, Comments, Concerns:
+          <textarea value={this.state.textarea} onChange={this.handleChange} />
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
                 </section>
                 <section id="giphyform">
                 <div id="gifArea">
-                {(this.state.gifs === "") ? "Search Giphy!" : (this.state.gifs.map(jif => <img src={jif.url} />))}
+                {(this.state.gifs === "") ? "Search Giphy!" : (this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />))}
                 </div>
                     <h1>Send me a gif</h1>
                     <form onSubmit={this.handleGifSubmit}>
