@@ -38,7 +38,8 @@ class App extends Component {
       images: this.props.images.map(image => ({
         image,
         src: preloaderImage
-      }))
+      })),
+      active: 0
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
@@ -110,15 +111,13 @@ class App extends Component {
 
   }
 
+  handleActive(num) {
+    console.log(num)
+  }
 
-
-
-
-
-
-
-
-
+  handleInactive(num) {
+    console.log(num)
+  }
 
 
 
@@ -137,16 +136,16 @@ class App extends Component {
           >
 
 
-            <Link className="navbar-brand link" to="section" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+            <Link className="navbar-brand link" to="section" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
               .
             </Link>
-            <Link className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+            <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
               .
             </Link>
-            <Link className="navbar-brand link" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+            <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
               .
             </Link>
-            <Link className="navbar-brand link" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+            <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
               .
             </Link>
 

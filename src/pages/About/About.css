@@ -49,3 +49,17 @@
 
 }
 
+
+.skills {
+    width: 50px;
+    height: 50px;
+    fill: #34495e;
+}
+
+svg:hover {
+    fill: rgb(255, 213, 220);
+}
+
+path:hover {
+    fill: rgb(255, 213, 220);
+}
