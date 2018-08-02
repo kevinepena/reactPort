@@ -17,7 +17,7 @@ import preloaderImage from "./logo.svg";
 // import ScrollView, { ScrollElement } from "./scroller";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 // import { Element, Link } from 'react-scroll';
-
+import Typist from "react-typist";
 
 class App extends Component {
 
@@ -43,6 +43,8 @@ class App extends Component {
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
+    this.handleSetActive = this.handleSetActive.bind(this);
+    this.handleSetInactive = this.handleSetInactive.bind(this);
 
   }
 
@@ -89,6 +91,7 @@ class App extends Component {
   }
 
   handleResize() {
+
     var winHeight = window.innerHeight;
     var winWidth = window.innerWidth;
     const scrolly = window.scrollY;
@@ -111,12 +114,12 @@ class App extends Component {
 
   }
 
-  handleActive(num) {
-    console.log(num)
+  handleSetActive() {
+
   }
 
-  handleInactive(num) {
-    console.log(num)
+  handleSetInactive() {
+
   }
 
 
@@ -142,62 +145,75 @@ class App extends Component {
           >
 
 
-            <Link className="navbar-brand link" to="section" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
-              .
+            <Link className="navbar-brand" to="section" spy={true} smooth={true} duration={500} offset={-200} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
+              <Typist
+                className="logospot"
+                cursor={{ show: false }}>
+                <Typist.Delay ms={2500} />
+                <span id="name">Kevin Peña</span>
+                <Typist.Backspace count={10} delay={1500} />
+                <span id="dev" >Developer</span>
+                <Typist.Backspace count={9} delay={1500} />
+                <span id="ent">Entrepreneur</span>
+                <Typist.Backspace count={12} delay={1500} />
+                <span id="name">KP: </span>
+
+              </Typist>
             </Link>
-            <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
-              .
-            </Link>
-            <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
-              .
-            </Link>
-            <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleActive} onSetInactive={this.handleInactive}>
-              .
+          <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
+            C
             </Link>
 
-
-          </div>
-
-
-          <Element name="container" className="element" id="containerElement">
-            <Element name="section">
-              <nav id="mainnav">
-                <ul>
-
-
-                  <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
-                    About
-                 </Link>
-                  <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
-                    Gallery
-                  </Link>
-                  <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
-                    Contact
+          <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
+            G
             </Link>
-                </ul>
-              </nav>
-            </Element>
-            <Element name="about" >
-              <About className="about" winWidth={this.state.winWidth} />
 
-            </Element>
-            <Element name="gallery" >
-              <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
-
-            </Element>
-            <Element name="contact" >
-              <Contact className="contact" />
-
-            </Element>
-          </Element>
+          <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
+            A
+            </Link>
 
         </div>
 
 
+        <Element name="container" className="element" id="containerElement">
+          <Element name="section">
+            <nav id="mainnav">
+              <ul>
+
+
+                <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
+                  About
+                 </Link>
+                <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
+                  Gallery
+                  </Link>
+                <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
+                  Contact
+            </Link>
+              </ul>
+            </nav>
+          </Element>
+          <Element name="about" >
+            <About className="about" winWidth={this.state.winWidth} />
+
+          </Element>
+          <Element name="gallery" >
+            <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
+
+          </Element>
+          <Element name="contact" >
+            <Contact className="contact" />
+
+          </Element>
+        </Element>
+
       </div>
+
+
+      </div >
 
 
     )

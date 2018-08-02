@@ -50,15 +50,15 @@ class About extends Component {
                                     fontSize: "20px",
                                     textShadow: "20px",
                                     zIndex: "9",
-                                    color: "rgba(0, 0, 0, 0.9)",
+                                    color: "#34495E",
                                     fontFamily: 'Raleway',
                                     overflow: "scroll"
-                                }}> <br /> I am a young entrepreneur exploring my options and resources to fully exploit my future growth and further my knowledge. I have basic understanding of computer science through Texas state university, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at UT Austin which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn not only because I know it will get me a decent salary, but also because I want to use my knowledge to be part of something bigger.</p>
+                                }}> <br /> I am a young entrepreneur exploring my options and resources to fully exploit my future growth and further my knowledge. I have basic understanding of computer science through <span style={{color: "#501214"}}>Texas State University</span>, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at <span style={{color: "#bf5700"}}>UT Austin</span> which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn not only because I know it will get me a decent salary, but also because I want to use my knowledge to be part of something bigger.</p>
                             {/* </Fade> */}
                         </Col>
 
                         <Col size="md-9 sm-12" style={{ float: "right", color: "white" }}>
-                            <div>
+                            <div  style={{marginBottom: "50px"}} >
                                 <h3>Skills:</h3>
                                 <svg viewBox="0 0 128 128" className="skills" id="html5" fill="#34495e">
                                     <path d="M9.032 2l10.005 112.093 44.896 12.401 45.02-12.387 10.015-112.107h-109.936zm89.126 26.539l-.627 7.172-.276 3.289h-52.665000000000006l1.257 14h50.156000000000006l-.336 3.471-3.233 36.119-.238 2.27-28.196 7.749v.002l-.034.018-28.177-7.423-1.913-21.206h13.815000000000001l.979 10.919 15.287 4.081h.043v-.546l15.355-3.875 1.604-17.579h-47.698l-3.383-38.117-.329-3.883h68.939l-.33 3.539z"></path>

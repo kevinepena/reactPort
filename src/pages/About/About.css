@@ -63,3 +63,7 @@ svg:hover {
 path:hover {
     fill: rgb(255, 213, 220);
 }
+
+h1, h3 {
+    color: #34495E
+}

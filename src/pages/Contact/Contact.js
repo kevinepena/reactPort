@@ -97,7 +97,7 @@ class Contact extends React.Component {
                                     placeholder="Questions, Comments, Inquiries?"
                                 />
                                 <FormBtn
-                                    disabled={!(this.state.name || this.state.email)}
+                                    disabled={!(this.state.name) || !(this.state.email) || !(this.state.textarea)}
                                     onClick={this.handleEmailSubmit}
                                 >
                                     Submit
@@ -105,6 +105,8 @@ class Contact extends React.Component {
                             </form>
 
                         </Col>
+                        <br />
+                        <br />
                         <Col size="md-6 sm-12" id="giphyform">
 
                             <div id="gifArea">
