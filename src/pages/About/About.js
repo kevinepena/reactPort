@@ -29,7 +29,7 @@ class About extends Component {
                         <h1 id="list-item-2">About Me</h1>
 
                         <Col size="md-3 sm-12">
-                            <Fade left>
+                            {/* <Fade > */}
 
                                 <img src={(this.props.winWidth >= 768) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
                                     width: "200px",
@@ -38,15 +38,15 @@ class About extends Component {
                                     display: "block",
                                     margin: "0 auto"
                                 }} />
-                            </Fade>
+                            {/* </Fade> */}
                         </Col>
-                        <Col size="md-9 sm-12">
-                            <Fade right>
+                        <Col size="md-9 sm-12" style={{overflow: "scroll"}}>
+                            {/* <Fade > */}
 
 
                                 <p id="bio" style={{
                                     float: "right",
-                                    height: "50vh",
+                                    // height: "50vh",
                                     fontSize: "20px",
                                     textShadow: "20px",
                                     zIndex: "9",
@@ -54,7 +54,7 @@ class About extends Component {
                                     fontFamily: 'Raleway',
                                     overflow: "scroll"
                                 }}> <br /> I am a young entrepreneur exploring my options and resources to fully exploit my future growth and further my knowledge. I have basic understanding of computer science through Texas state university, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at UT Austin which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn not only because I know it will get me a decent salary, but also because I want to use my knowledge to be part of something bigger.</p>
-                            </Fade>
+                            {/* </Fade> */}
                         </Col>
 
                         <Col size="md-9 sm-12" style={{ float: "right", color: "white" }}>
