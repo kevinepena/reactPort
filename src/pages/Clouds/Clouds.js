@@ -3,7 +3,7 @@ import "./Clouds.css"
 
 
 const One = (props) => (
-    <div >
+    <div style={{overflow: "hidden"}} >
 
 
       <img className="One" src={props.images[0].src} />
