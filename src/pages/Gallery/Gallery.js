@@ -17,7 +17,7 @@ class Gallery extends Component {
             <div className="fixed" >
 
                 <h1 id="list-item-3" style={{ fontFamily: 'Raleway', }}> Gallery </h1>
-                <div className="gallery" style={{ width: ((this.props.winWidth > 768) ? "2080px" : "") }}>
+                <div className="gallery" style={{ width: ((this.props.winWidth > 768) ? "2200px" : "") }}>
 
                     {works.map((image, index) => (
                         <div key={index} className="frame" style={{ display: ((this.props.winWidth > 768) ? "inline" : ""), margin: ((this.props.winWidth > 768) ? "40px" : "40px auto"), }} >
