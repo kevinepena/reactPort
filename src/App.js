@@ -126,9 +126,15 @@ class App extends Component {
     return (
       <div>
 
-        <Clouds images={this.state.images} style={{ overflow: "hidden" }} />
+        {/* <Clouds images={this.state.images} style={{ overflow: "hidden" }} /> */}
+
+        <div style={{ overflow: "hidden" }} >
 
 
+          <img className="One" src={this.state.images[0].src} />
+
+
+        </div>
 
         <div id="all"
         >
