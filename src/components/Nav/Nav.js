@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Typist from 'react-typist';
 import "./Nav.css";
-import { NavLink } from 'react-router-dom';
+
 
 const Nav = props => {
     const opacity = (props.opacity) ? Math.max(props.opacity, 0.2) : 0;
@@ -10,7 +10,9 @@ const Nav = props => {
     return (
 
 
-    <nav style={{ opacity, borderBottomWidth }} className="links">
+    <nav
+    //  style={{ opacity, borderBottomWidth }} className="links"
+     >
 
         <Typist
             className="logospot"
@@ -22,13 +24,13 @@ const Nav = props => {
             <Typist.Backspace count={8} delay={1500} />
             <span id="ent">Entrepreneur</span>
             <Typist.Backspace count={12} delay={1500} />
-            <NavLink to='/' className="navbar-brand logo"><span id="name">KP: </span></NavLink>
+            <h4 to='/' className="navbar-brand logo"><span id="name">KP: </span></h4>
 
         </Typist>
-        
-        <NavLink to='/about' className="navbar-brand link" >About</NavLink>
-        <NavLink to='/gallery' className="navbar-brand link" >Gallery</NavLink>
-        <NavLink to='/contact' className="navbar-brand link" >Contact</NavLink>
+
+        <h4 className="navbar-brand link" >About</h4>
+        <h4  className="navbar-brand link" >Gallery</h4>
+        <h4 className="navbar-brand link" >Contact</h4>
 
     </nav>
 

@@ -1,25 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Clouds.css"
-import Gallery from "../Gallery";
-import Typist from "react-typist";
-import { NavLink } from 'react-router-dom';
 
 
+const One = (props) => (
+    <div >
 
-class One extends Component {
 
-  render() {
+      <img className="One" src={props.images[0].src} />
 
-    return (
-      <div >
 
-       
-          <img className="One" src={this.props.images[0].src} />
+    </div>
 
-  
-      </div>
+  );
 
-    )
-  }
-}
 export default One;

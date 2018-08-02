@@ -6,14 +6,15 @@
     font-size: 45px;
 }
 
-.logospot {
-    position: absolute;
-    text-decoration: none;
+
+
+.homelink:visited {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.logo:visited {
+.homelink:hover {
     color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
 }
 
 .popup {

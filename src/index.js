@@ -6,7 +6,6 @@ import registerServiceWorker from "./registerServiceWorker";
 
 var images = [
     "assets/pics/background/cloudshor.png",
-
 ];
 
 ReactDOM.render(<App images={images} />, document.getElementById("root"));

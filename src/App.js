@@ -1,34 +1,22 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { NavLink } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Clouds from "./pages/Clouds";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
-import { ParallaxProvider } from 'react-scroll-parallax';
-import Nav from "./components/Nav";
+// import { ParallaxProvider } from 'react-scroll-parallax';
+// import Nav from "./components/Nav";
 import "./App.css";
-import Transition from 'react-transition-group/Transition';
-import Zoom from 'react-reveal/Zoom';
-import Fade from 'react-reveal/Fade';
-import HiddenNav from "./components/HiddenNav";
-import Section from "./components/Section";
+// import Transition from 'react-transition-group/Transition';
+// import Zoom from 'react-reveal/Zoom';
+// import Fade from 'react-reveal/Fade';
+// import HiddenNav from "./components/HiddenNav";
+// import Section from "./components/Section";
 import preloaderImage from "./logo.svg";
-import ScrollView, { ScrollElement } from "./scroller";
+// import ScrollView, { ScrollElement } from "./scroller";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
-
-
-const duration = 300;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-}
-const transitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-};
+// import { Element, Link } from 'react-scroll';
 
 
 class App extends Component {
@@ -54,12 +42,10 @@ class App extends Component {
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
-    this.updateNavOpacity = this.updateNavOpacity.bind(this);
-    // this.updateNavOpacity = this.updateNavOpacity.bind(this);
+
   }
 
   componentWillMount() {
-    console.log(this.state.images);
     this.state.images.forEach((image, index) => {
 
       const src = image.image
@@ -87,26 +73,30 @@ class App extends Component {
   }
 
   componentDidMount() {
+    Events.scrollEvent.register('begin', function () {
+      // console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function () {
+      // console.log("end", arguments);
+    });
+
+    scrollSpy.update();
+
     window.addEventListener('resize', this.handleResize);
-    document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
+    // document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
   }
 
   handleResize() {
     var winHeight = window.innerHeight;
-
     var winWidth = window.innerWidth;
-
-    // winWidth = ((winWidth * .10) * 8) / 3;
-
     const scrolly = window.scrollY;
-
-
     const firststop = (winHeight * .15) * 5.65;
 
 
     // this.setState({ firststop });
     // this.setState({ scrolly });
-    // this.setState({ winWidth })
+    this.setState({ winWidth })
 
     // if (this.state.scrolly >= this.state.firststop) {
     //   this.setState({ show: true });
@@ -115,140 +105,95 @@ class App extends Component {
     // if (this.state.scrolly <= this.state.firststop) {
     //   this.setState({ show: false });
     // }
-
-    var value = document.body.scrollTop;
-    console.log(firststop);
-    console.log(scrolly)
-
-  }
-
-  updateNavOpacity() {
-    var winHeight = window.innerHeight;
-
-    const navbarHeight = 50; // Bootstrap default
-    const { bottomBorderWidth, headerHeight, fadeInDistance } = this.props;
-    const endFade = headerHeight - navbarHeight - bottomBorderWidth;
-    const startFade = endFade - fadeInDistance;
-    const scrolly = window.scrollY;
-    const firststop = (winHeight);
-
-    this.setState({ firststop });
-    this.setState({ scrolly });
-
-    var el = document.getElementById('all');
-    var minPixel = el.offsetTop;
-    var maxPixel = minPixel + el.scrollHeight;
-    var value = document.body.scrollTop;
-
-    // respect bounds of element
-    var percent = (value - minPixel) / (maxPixel - minPixel);
-    percent = Math.min(1, Math.max(percent, 0)) * 100;
-
-    console.log(percent)
-
-    if (scrolly < startFade) {
-      if (this.state.opacity === 0) return;
-      this.setState({ navOpacity: 0 });
-      return;
-    }
-
-    if (scrolly > 1) {
-      if (this.state.opacity === 1) return;
-      this.setState({ navOpacity: 1 });
-      return;
-    }
-
-    if (this.state.scrolly >= this.state.firststop) {
-      this.setState({ show: true });
-    }
-
-    if (this.state.scrolly <= this.state.firststop) {
-      this.setState({ show: false });
-    }
-    const pxPastStartFade = scrolly - startFade;
-    const navOpacity = pxPastStartFade / (endFade - startFade);
-    this.setState({ navOpacity });
+    // console.log(firststop);
+    // console.log(scrolly)
 
   }
 
 
 
 
-  renderNavigation() {
-    console.log(this.state.winWidth)
-    if (this.state.winWidth > 768) {
-      return <Nav winWidth={this.state.winWidth} winHeight={this.state.winHeight} />
 
-    } else {
-      return <HiddenNav />
-    }
-  }
 
-  scrollTo = (name) => {
-    console.log(name)
-    this._scroller.scrollTo(name);
-  }
+
+
+
 
 
 
 
   render() {
 
-
-    const items = [{ item: <About winWidth={this.state.winWidth} />, name: "About" }, { item: <Gallery images={this.state.images} winWidth={this.state.winWidth}/>, name: "Gallery" }, { item: <Contact />, name: "Contact" }];
-
-    const mobileView = {
-      width: "100%",
-      margin: "0 auto"
-    }
-
-    const bitmoji = ["assets/pics/bitmoji/hellobitmoji.png", "assets/pics/bitmoji/gallerybitmoji.png", "assets/pics/bitmoji/contactbitmoji.png"];
-
     return (
+      <div>
 
-      <Router>
-        <div>
+        <Clouds images={this.state.images} style={{ overflow: "hidden" }} />
 
 
-          <div id="all"
-          //  onScroll={this.updateNavOpacity}
+
+        <div id="all"
+        >
+          <div className="nav links"
           >
-            <nav id="mainnav">
 
-              <ul>
-                {
-                  items.map(({ name }, index) => <li className="homelink" onClick={() => this.scrollTo(name)}><span><img src={bitmoji[index]} className="popup" /></span>{name}</li>)
-                }
-                {/* <NavLink to='/about' className="homelink" onClick={() => this.scrollTo(About)}><span><img src="assets/pics/hellobitmoji.png" className="popup" /></span>About</NavLink>
-              <br />
-              <NavLink to='/gallery' className="homelink"><span><img src="assets/pics/gallerybitmoji.png" className="popup" /></span>Gallery</NavLink>
-              <br />
-              <NavLink to='/contact' className="homelink" ><span><img src="assets/pics/contactbitmoji.png" className="popup" /></span>Contact</NavLink> */}
 
-              </ul>
-            </nav>
-            {/* <Nav opacity={this.state.navOpacity} borderBottomWidth={this.props.bottomBorderWidth} /> */}
-            <ScrollView ref={scroller => this._scroller = scroller}>
-              <div className="scroller">
-                {items.map(({ name, item }) => {
-                  return (
-                    <ScrollElement name={name}>
+            <Link className="navbar-brand link" to="section" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+              .
+            </Link>
+            <Link className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+              .
+            </Link>
+            <Link className="navbar-brand link" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+              .
+            </Link>
+            <Link className="navbar-brand link" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+              .
+            </Link>
 
-                      {item}
-
-                    </ScrollElement>
-                  );
-                })}
-              </div>
-            </ScrollView>
 
           </div>
 
-          <div style={{ overflow: "hidden" }}>
-            <Clouds images={this.state.images} />
-          </div>
+
+          <Element name="container" className="element" id="containerElement">
+            <Element name="section">
+              <nav id="mainnav">
+                <ul>
+
+
+                  <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
+                    About
+                 </Link>
+                  <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
+                    Gallery
+                  </Link>
+                  <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
+                    Contact
+            </Link>
+                </ul>
+              </nav>
+            </Element>
+            <Element name="about" >
+              <About className="about" winWidth={this.state.winWidth} />
+
+            </Element>
+            <Element name="gallery" >
+              <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
+
+            </Element>
+            <Element name="contact" >
+              <Contact className="contact" />
+
+            </Element>
+          </Element>
+
         </div>
-      </Router>
+
+
+      </div>
+
 
     )
   }

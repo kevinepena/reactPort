@@ -13,3 +13,181 @@
   position: absolute;
 }
 
+/* for main section nav */
+
+#mainnav {
+  height: 100vh;
+}
+
+.homelink {
+  font-size: 45px;
+}
+
+
+
+.homelink:visited {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.homelink:hover {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.popup {
+  opacity: 0.5;
+  display: inline;
+  position: absolute;
+  width: 100px;
+  margin: -80px 25px;
+  display: none;
+}
+
+
+
+.homelink:hover .popup, .homelink:active .popup{
+display: inline;
+}
+
+/*================================
+
+more main nav
+
+==================================*/
+
+.nav {
+  position: fixed;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.active {
+	color:rgb(255, 213, 220) !important;
+}
+
+.Typist {
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 70px;
+    letter-spacing: -0.07ex;
+    animation: anim 1.5s infinite alternate ease-in-out;
+    padding-left: 20px;
+}
+/*           
+@keyframes anim {
+from {
+  text-shadow: 0 0 10px transparent;
+}
+to {
+  text-shadow: 0 28px 50px rgba(0, 0, 0, 0.8);
+}} */
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC|Geo|Permanent+Marker|Schoolbell|Special+Elite');
+
+#name {
+font-family: 'Schoolbell';
+}
+
+#dev {
+/* font-family: 'Permanent Marker', cursive; */
+font-family: 'Special Elite', cursive;
+}
+
+#ent {
+font-family: 'Abel', sans-serif;
+/* font-family: 'Geo', sans-serif; */
+}
+
+.link {
+float: left;
+position: relative;
+text-decoration: none;
+font-size: 40px;
+font-family: 'Special Elite', cursive;
+color: whitesmoke
+
+}
+
+.link:visited {
+color: rgba(255, 255, 255, 0.6);
+}
+
+#navbar {
+display: inline;
+}
+
+.logo {
+display: inline;
+text-decoration: none;
+}
+
+.logo:visited {
+
+color: rgba(255, 255, 255, 0.6);
+}
+
+.logospot {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.links {
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.mobile {
+
+text-align: center;
+color: rgba(255, 255, 255, 0.6);
+text-decoration: none;
+font-family: 'Special Elite', cursive;
+display: block;
+position: relative;
+margin: 0 auto;
+font-size: 40px;
+
+}
+
+.mobile:visited {
+color: rgba(255, 255, 255, 0.6);
+text-decoration: none;
+font-family: 'Special Elite', cursive;
+}
+
+.home {
+  display: block;
+  margin: 0 auto;
+  font-size: 40px;
+  position: relative;
+}
+
+.homelink:visited {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-family: 'Special Elite', cursive;
+}
+
+.homelink {
+  display: block;
+  margin: 20vh 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-family: 'Special Elite', cursive;
+  z-index: 999;
+}
+
+.element {
+	height:100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+
+

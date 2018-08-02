@@ -60,7 +60,7 @@ class Contact extends React.Component {
                     <div id="form">
                         <Col size="md-6 sm-12" id="emailForm">
 
-                            <h1>Shoot me a message </h1>
+                            <h1 id="list-item-4">Shoot me a message </h1>
                             <form >
                                 {/* <label className="name">
                                 Name:
@@ -128,6 +128,11 @@ class Contact extends React.Component {
                                 <FormBtn
                                     disabled={!(this.state.gif)}
                                     onClick={this.handleGifSubmit}
+                                    style={{
+                                        color: "#ffffff",
+                                        backgroundColor: "#000000",
+                                        borderColor: "#000000",
+                                    }}
                                 >
                                     Search
                                 </FormBtn>
