@@ -115,12 +115,12 @@ class App extends Component {
   }
 
   handleSetActive() {
-    this.setState({active: true})
+    this.setState({ active: true })
     console.log(this.state.active)
   }
 
   handleSetInactive() {
-    this.setState({active: false})
+    this.setState({ active: false })
     console.log(this.state.active)
   }
 
@@ -142,7 +142,7 @@ class App extends Component {
 
         <div id="all"
         >
-          <div className="nav links" style={{backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)"}}
+          <div className="nav links" style={{ backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)" }}
           >
 
 
@@ -161,58 +161,58 @@ class App extends Component {
 
               </Typist>
             </Link>
-            <div style={{display: "inline", opacity: (!this.state.active) ? "0" : "1"}}>
-          <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive}  ignoreCancelEvents={true}>
-          {(this.state.winWidth >= 768) ? "Contact" : "."}
-            </Link>
+            <div style={{ display: "inline", opacity: (!this.state.active) ? "0" : "1" }}>
+              <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
+                {(this.state.winWidth >= 768) ? "Contact" : "."}
+              </Link>
 
-          <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-          {(this.state.winWidth >= 768) ? "Gallery" : "."}
-            </Link>
+              <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
+                {(this.state.winWidth >= 768) ? "Gallery" : "."}
+              </Link>
 
-          <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-            {(this.state.winWidth >= 768) ? "About" : "."}
-            </Link>
+              <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
+                {(this.state.winWidth >= 768) ? "About" : "."}
+              </Link>
+            </div>
           </div>
-        </div>
 
 
-        <Element name="container" className="element" id="containerElement">
-          <Element name="section">
-            <nav id="mainnav">
-              <ul>
+          <Element name="container" className="element" id="containerElement">
+            <Element name="section">
+              <nav id="mainnav">
+                <ul>
 
 
-                <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
-                  About
+                  <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    About
                  </Link>
-                <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
-                  Gallery
+                  <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    Gallery
                   </Link>
-                <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
-                  Contact
+                  <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                    Contact
             </Link>
-              </ul>
-            </nav>
-          </Element>
-          <Element name="about" >
-            <About className="about" winWidth={this.state.winWidth} />
+                </ul>
+              </nav>
+            </Element>
+            <Element name="about" >
+              <About className="about" winWidth={this.state.winWidth} />
 
-          </Element>
-          <Element name="gallery" >
-            <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
+            </Element>
+            <Element name="gallery" >
+              <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
 
-          </Element>
-          <Element name="contact" >
-            <Contact className="contact" />
+            </Element>
+            <Element name="contact" >
+              <Contact className="contact" />
 
+            </Element>
           </Element>
-        </Element>
 
-      </div>
+        </div>
 
 
       </div >
