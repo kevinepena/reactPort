@@ -62,22 +62,6 @@ class Contact extends React.Component {
 
                             <h1 id="list-item-4">Shoot me a message </h1>
                             <form >
-                                {/* <label className="name">
-                                Name:
-            <input type="text" value={this.state.name} onChange={this.handleChange} name="name" />
-                            </label>
-                            <label className="email">
-                                Email:
-            <input type="text" value={this.state.email} onChange={this.handleChange} name="email" />
-                            </label>
-                            <br />
-                            <label className="qcc">
-                                Questions, Comments, Concerns:
-                            <br />
-                                <textarea type="text" value={this.state.textarea} onChange={this.handleChange} name="textarea" />
-                            </label>
-                            <input type="submit" value="Submit" /> */}
-
                                 <Input
                                     value={this.state.name}
                                     onChange={this.handleChange}
@@ -109,10 +93,9 @@ class Contact extends React.Component {
                         <br />
                         <Col size="md-6 sm-12" id="giphyform">
 
-                            <div id="gifArea">
-
-                                {(this.state.gifs == "") ? (<img style={{ width: "300px" }} src="assets/pics/giphylogo.png" />) : (this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />))}
-                            </div>
+                            
+        {(this.state.gifs == "") ? (<img style={{ width: "300px" }} src="assets/pics/giphylogo.png" />) : (<div id="gifArea">{this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />)}</div>)}
+                            
                             <h1>Send me a gif</h1>
                             <form >
                                 {/* <label>

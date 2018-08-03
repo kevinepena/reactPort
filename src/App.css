@@ -58,7 +58,7 @@ more main nav
 .nav {
   position: fixed;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
 .active {

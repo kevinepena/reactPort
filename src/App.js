@@ -13,7 +13,7 @@ import "./App.css";
 // import Fade from 'react-reveal/Fade';
 // import HiddenNav from "./components/HiddenNav";
 // import Section from "./components/Section";
-import preloaderImage from "./logo.svg";
+// import preloaderImage from "./logo.svg";
 // import ScrollView, { ScrollElement } from "./scroller";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 // import { Element, Link } from 'react-scroll';
@@ -37,9 +37,9 @@ class App extends Component {
       winHeight: window.height,
       images: this.props.images.map(image => ({
         image,
-        src: preloaderImage
+        src: ""
       })),
-      active: 0
+      active: false
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
@@ -115,13 +115,14 @@ class App extends Component {
   }
 
   handleSetActive() {
-
+    this.setState({active: true})
+    console.log(this.state.active)
   }
 
   handleSetInactive() {
-
+    this.setState({active: false})
+    console.log(this.state.active)
   }
-
 
 
   render() {
@@ -141,11 +142,11 @@ class App extends Component {
 
         <div id="all"
         >
-          <div className="nav links"
+          <div className="nav links" style={{backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)"}}
           >
 
 
-            <Link className="navbar-brand" to="section" spy={true} smooth={true} duration={500} offset={-200} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
+            <Link className="navbar-brand" to="section" spy={true} smooth={true} duration={500} offset={-200} activeClass="active" containerId="containerElement" onSetActive={this.handleSetInactive} ignoreCancelEvents={true}>
               <Typist
                 className="logospot"
                 cursor={{ show: false }}>
@@ -160,18 +161,19 @@ class App extends Component {
 
               </Typist>
             </Link>
-          <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
-            C
+            <div style={{display: "inline", opacity: (!this.state.active) ? "0" : "1"}}>
+          <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive}  ignoreCancelEvents={true}>
+          {(this.state.winWidth >= 768) ? "Contact" : "."}
             </Link>
 
-          <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
-            G
+          <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+          {(this.state.winWidth >= 768) ? "Gallery" : "."}
             </Link>
 
-          <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} onSetInactive={this.handleSetInactive} ignoreCancelEvents={true}>
-            A
+          <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+            {(this.state.winWidth >= 768) ? "About" : "."}
             </Link>
-
+          </div>
         </div>
 
 
