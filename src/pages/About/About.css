@@ -56,11 +56,11 @@
     fill: #34495e;
 }
 
-svg:hover {
+svg:not(.follow):hover {
     fill: rgb(255, 213, 220);
 }
 
-path:hover {
+path:not(.active):hover {
     fill: rgb(255, 213, 220);
 }
 

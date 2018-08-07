@@ -9,8 +9,9 @@
   width: 100%;
   height: 100vh;
   overflow: scroll;
-  display: inline;
+  /* display: inline; */
   position: absolute;
+
 }
 
 /* for main section nav */
@@ -201,7 +202,16 @@ font-family: 'Special Elite', cursive;
 
 
 
+a:hover {
+  cursor: pointer
+}
+
 a:hover, a:focus {
+
   color: none;
     text-decoration: none;
+  }
+
+  span:hover { 
+   
   }

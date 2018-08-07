@@ -14,10 +14,16 @@ import "./App.css";
 // import HiddenNav from "./components/HiddenNav";
 // import Section from "./components/Section";
 // import preloaderImage from "./logo.svg";
-// import ScrollView, { ScrollElement } from "./scroller";
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 // import { Element, Link } from 'react-scroll';
 import Typist from "react-typist";
+import facebook from "./svg/facebook.svg";
+import linkedin from "./svg/linkedin.svg";
+import twitter from "./svg/twitter.svg";
+import github from "./svg/github-logo.svg";
+import instagram from "./svg/instagram.svg";
+import snapchat from "./svg/snapchat.svg";
+import Button from './components/Button';
 
 class App extends Component {
 
@@ -39,7 +45,9 @@ class App extends Component {
         image,
         src: ""
       })),
-      active: false
+      active: false,
+      socialIcons: [{social: facebook, link: "https://facebook.com/kevinpena0"}, {social : github, link: "https://github.com/kevinepena"}, {social : instagram, link :"https://instagram.com/kevinepena"}, {social: linkedin, link: "https://linkedin.com/in/kevinepena"}, {social: snapchat, link : "https://www.snapchat.com/add/kevinn_pena" }, {social: twitter, link: "https://twitter.com/kevinepena"}],
+      shareIcons: [facebook, linkedin, twitter]
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
@@ -142,6 +150,10 @@ class App extends Component {
 
         <div id="all"
         >
+
+<Button socialIcons={this.state.socialIcons} />
+          {/* <Button /> */}
+
           <div className="nav links" style={{ backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)" }}
           >
 
@@ -183,8 +195,7 @@ class App extends Component {
           <Element name="container" className="element" id="containerElement">
             <Element name="section">
               <nav id="mainnav">
-                <ul>
-
+                
 
                   <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
                     About
@@ -195,8 +206,9 @@ class App extends Component {
                   <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
                     Contact
             </Link>
-                </ul>
               </nav>
+
+
             </Element>
             <Element name="about" >
               <About className="about" winWidth={this.state.winWidth} />
@@ -207,7 +219,7 @@ class App extends Component {
 
             </Element>
             <Element name="contact" >
-              <Contact className="contact" />
+              <Contact className="contact" socialIcons={this.state.socialIcons} />
 
             </Element>
           </Element>

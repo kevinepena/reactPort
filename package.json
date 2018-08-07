@@ -4,6 +4,7 @@
   "description": "Kevin Peña",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.4.2",
     "animejs": "^2.2.0",
     "axios": "^0.18.0",
     "charming": "^2.2.4",
@@ -22,8 +23,10 @@
     "react-scripts": "^1.1.4",
     "react-scroll": "^1.7.10",
     "react-scroll-parallax": "^1.3.5",
+    "react-share": "^2.2.0",
     "react-slideshow-image": "^0.2.2",
     "react-sticky": "^6.0.3",
+    "react-swipeable-views": "^0.12.15",
     "react-transition-group": "^2.4.0",
     "react-typist": "^2.0.4",
     "scroll-into-view": "^1.9.3",

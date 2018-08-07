@@ -7,6 +7,18 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import axios from "axios";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    EmailShareButton,
+    EmailIcon
+
+} from 'react-share';
+
+import facebook from "../../svg/facebook.svg";
+import linkedin from "../../svg/linkedin.svg";
+import twitter from "../../svg/twitter.svg";
 
 class Contact extends React.Component {
     constructor(props) {
@@ -19,7 +31,8 @@ class Contact extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.state.gifs)
+
+        console.log(this.props.socialIcons)
     }
 
 
@@ -52,12 +65,18 @@ class Contact extends React.Component {
 
 
     render() {
+
+        const shareUrl = 'https://kevinpena.herokuapp.com';
+        const title = "Check out Kevin's ReactJS portfolio!";
+
         return (
 
-            <Container fluid  >
+
+
+            <Container fluid   >
 
                 <Row >
-                    <div id="form">
+                    <div id="form" >
                         <Col size="md-6 sm-12" id="emailForm">
 
                             <h1 id="list-item-4">Shoot me a message </h1>
@@ -93,9 +112,9 @@ class Contact extends React.Component {
                         <br />
                         <Col size="md-6 sm-12" id="giphyform">
 
-                            
-        {(this.state.gifs == "") ? (<img style={{ width: "300px" }} src="assets/pics/giphylogo.png" />) : (<div id="gifArea">{this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />)}</div>)}
-                            
+
+                            {(this.state.gifs == "") ? (<img style={{ width: "168px" }} src="assets/pics/giphylogo.png" />) : (<div id="gifArea">{this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />)}</div>)}
+
                             <h1>Send me a gif</h1>
                             <form >
                                 {/* <label>
@@ -121,11 +140,50 @@ class Contact extends React.Component {
                                 >
                                     Search
                                 </FormBtn>
+
                             </form>
 
                         </Col>
+                        <footer id="sharefooter">
+                            <Col size="md-4 sm-12">
+
+                                Share my page 😎
+<br />
+                                <LinkedinShareButton
+
+                                    url={shareUrl}
+                                    title={title}>
+                                    <img src={linkedin} className="share" />
+                                </LinkedinShareButton>
+
+                                <TwitterShareButton
+
+                                    url={shareUrl}
+                                    title={title} >
+                                    <img src={twitter} className="share" />
+                                </TwitterShareButton>
+                                <FacebookShareButton
+
+                                    url={shareUrl}
+                                    quote={title} >
+                                    <img src={facebook} className="share" />
+                                </FacebookShareButton>
+                            </Col>
+                      
+  
+                        </footer>
+                        {/* <footer id="followfooter" >
+                            {this.props.socialIcons.map(icon => {
+                                <button>
+                                    <img src={icon} className="follow" />
+                                </button>
+                            })}
+                        </footer> */}
+
                     </div>
+
                 </Row>
+
             </Container>
 
         );
