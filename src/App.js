@@ -46,9 +46,11 @@ class App extends Component {
         src: ""
       })),
       active: false,
-      socialIcons: [{ social: facebook, link: "https://facebook.com/kevinpena0" }, { social: github, link: "https://github.com/kevinepena" }, { social: instagram, link: "https://instagram.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, { social: twitter, link: "https://twitter.com/kevinepena" }],
+      socialIcons: [ { social: github, link: "https://github.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" }, { social: instagram, link: "https://instagram.com/kevinepena" }, { social: facebook, link: "https://facebook.com/kevinpena0" }, 
+      // { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
+      { social: twitter, link: "https://twitter.com/kevinepena" }],
       shareIcons: [facebook, linkedin, twitter],
-      time: 1000,
+      time: 3000,
       done: false
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
