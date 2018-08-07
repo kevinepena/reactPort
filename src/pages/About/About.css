@@ -44,9 +44,7 @@
 
 #about {
     width: 100%;
-
-    background-color: linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%);
-
+    min-height: 100vh;
 }
 
 
@@ -56,11 +54,11 @@
     fill: #34495e;
 }
 
-svg:not(.follow):hover {
+svg:not(.add):hover {
     fill: rgb(255, 213, 220);
 }
 
-path:not(.active):hover {
+path:not(.add):hover {
     fill: rgb(255, 213, 220);
 }
 
