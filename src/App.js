@@ -124,12 +124,12 @@ class App extends Component {
 
   handleSetActive() {
     this.setState({ active: true })
-    console.log(this.state.active)
+
   }
 
   handleSetInactive() {
     this.setState({ active: false })
-    console.log(this.state.active)
+
   }
 
 
