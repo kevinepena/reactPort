@@ -30,12 +30,6 @@ class Contact extends React.Component {
         this.handleGifSubmit = this.handleGifSubmit.bind(this)
     }
 
-    componentDidMount() {
-
-        console.log(this.props.socialIcons)
-    }
-
-
 
     handleChange(event) {
         const { name, value } = event.target;
@@ -55,7 +49,6 @@ class Contact extends React.Component {
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=IBWSeiwHQf0G4PKRWdLB1h8M4WDjcKLX&q=${this.state.gif}&limit=25&offset=0&lang=en`)
             .then(res => {
                 this.setState({ gifs: res.data.data })
-                console.log(this.state.gifs)
             })
             .catch(err => console.log(err));
 

@@ -46,17 +46,19 @@ class App extends Component {
         src: ""
       })),
       active: false,
-      socialIcons: [{social: facebook, link: "https://facebook.com/kevinpena0"}, {social : github, link: "https://github.com/kevinepena"}, {social : instagram, link :"https://instagram.com/kevinepena"}, {social: linkedin, link: "https://linkedin.com/in/kevinepena"}, {social: snapchat, link : "https://www.snapchat.com/add/kevinn_pena" }, {social: twitter, link: "https://twitter.com/kevinepena"}],
-      shareIcons: [facebook, linkedin, twitter]
+      socialIcons: [{ social: facebook, link: "https://facebook.com/kevinpena0" }, { social: github, link: "https://github.com/kevinepena" }, { social: instagram, link: "https://instagram.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, { social: twitter, link: "https://twitter.com/kevinepena" }],
+      shareIcons: [facebook, linkedin, twitter],
+      time: 1000,
+      done: false
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
     this.handleSetActive = this.handleSetActive.bind(this);
     this.handleSetInactive = this.handleSetInactive.bind(this);
-
   }
 
   componentWillMount() {
+    setInterval((this.state.time + 1000), 1000);
     this.state.images.forEach((image, index) => {
 
       const src = image.image
@@ -68,8 +70,9 @@ class App extends Component {
         console.log(`image #${index + 1} is loaded!`)
         const images = [...this.state.images] // copy images array from state
         images[index].src = src // adjust loaded image src
+        clearInterval(this.state.time)
         this.setState({
-          images
+          images,
         })
       }
       primaryImage.src = src // do it after you set onload handler
@@ -83,7 +86,12 @@ class App extends Component {
 
   }
 
+
+
   componentDidMount() {
+
+    
+
     Events.scrollEvent.register('begin', function () {
       // console.log("begin", arguments);
     });
@@ -97,6 +105,7 @@ class App extends Component {
     window.addEventListener('resize', this.handleResize);
     // document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
   }
+
 
   handleResize() {
 
@@ -151,7 +160,7 @@ class App extends Component {
         <div id="all"
         >
 
-<Button socialIcons={this.state.socialIcons} />
+          <Button socialIcons={this.state.socialIcons} />
           {/* <Button /> */}
 
           <div className="nav links" style={{ backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)" }}
@@ -162,7 +171,7 @@ class App extends Component {
               <Typist
                 className="logospot"
                 cursor={{ show: false }}>
-                <Typist.Delay ms={2500} />
+                <Typist.Delay ms={this.state.time} />
                 <span id="name">Kevin Peña</span>
                 <Typist.Backspace count={10} delay={1500} />
                 <span id="dev" >Developer</span>
@@ -195,16 +204,16 @@ class App extends Component {
           <Element name="container" className="element" id="containerElement">
             <Element name="section">
               <nav id="mainnav">
-                
 
-                  <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    About
+
+                <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  About
                  </Link>
-                  <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    Gallery
+                <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  Gallery
                   </Link>
-                  <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                    Contact
+                <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
+                  Contact
             </Link>
               </nav>
 

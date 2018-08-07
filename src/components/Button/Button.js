@@ -68,7 +68,7 @@ render() {
 </svg>
 </Icon>
       </Button>
-<div id="socialdiv" style={{opacity: (this.state.open) ? "1" : "0"}}>
+<div id="socialdiv" style={{display: (this.state.open) ? "" : "none"}}>
 {this.props.socialIcons.map(icon => <span><a href={icon.link} target="_blank"><img src={icon.social} className="follow" /></a></span>)}
   </div>
 
