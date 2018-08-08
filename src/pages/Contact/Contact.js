@@ -69,7 +69,7 @@ class Contact extends React.Component {
             <Container fluid   >
 
                 <Row >
-                    <div id="form" >
+                    <div id="form" className={this.props.open ? "blur" : ""} >
                         <Col size="md-8 sm-12" id="emailForm">
 
                             <h1 id="list-item-4">Shoot me a message </h1>

@@ -20,7 +20,7 @@ class About extends Component {
 
                 <Row>
 
-                    <div id="about" style={{
+                    <div id="about" className={this.props.open ? "blur" : ""} style={{
                         width: "100%",
                         backgroundColor: "linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%)",
 

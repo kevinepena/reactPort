@@ -1,7 +1,9 @@
 .cloud {
-    width: 25px;
+    z-index: 999;
+    width: 50px;
     margin: 8px 0;
     cursor: pointer;
-float: right;
+    position: absolute;
+    right: 0;
 }
 

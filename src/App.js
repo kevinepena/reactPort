@@ -53,11 +53,12 @@ class App extends Component {
       shareIcons: [facebook, linkedin, twitter],
       time: 1500,
       done: false,
-      open: false
+      open: true
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     // this.handleSetActive = this.handleSetActive.bind(this);
     // this.handleSetInactive = this.handleSetInactive.bind(this);
   }
@@ -94,6 +95,7 @@ class App extends Component {
 
 
   componentDidMount() {
+    console.log(this.state.open)
 
     this.handleResize;
 
@@ -161,10 +163,19 @@ class App extends Component {
   // }
 
   handleOpen() {
-    this.setState({ open: !this.state.open })
+    if (this.state.open === false) {
+      this.setState({ open: true })
+    }
+    else if (this.state.open == true) {
+      this.setState({ open: false })
+    }
+
     console.log(this.state.open)
   }
 
+  handleClose() {
+    this.setState({ open: false })
+  }
 
   render() {
 
@@ -180,15 +191,17 @@ class App extends Component {
 
             active={this.state.active}
           />
+          <button className="cloud" onClick={this.handleOpen} style={{ display: (this.state.active) ? "" : "none" }} >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395-299.99-418.63)" /></svg>
+          </button>
 
           <Row>
 
             <div id="all"
+              
             >
 
-              <button className="cloud" onClick={this.handleOpen} style={{ display: (this.state.active) ? "" : "none" }} >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="cloud" ><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395-299.99-418.63)" /></svg>
-              </button>
+
 
               <Button socialIcons={this.state.socialIcons} />
               {/* <Button /> */}
@@ -196,63 +209,67 @@ class App extends Component {
 
 
                 <Element name="section"
-                  className={(this.state.active) ? "mobile" : "" }>
+                  onClick={this.handleClose}
+                  id={(this.state.active) ? "mobile" : ""}
+                  className={this.state.open ? "open" : "open-n"}
+                >
                   <nav id="mainnav" >
 
-                  <Link className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                    About
+                    <Link onClick={this.handleClose} className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      About
                     </Link>
-                  <br />
-                  <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                    Gallery
+                    <br />
+                    <Link onClick={this.handleClose} className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      Gallery
                     </Link>
-                  <br />
-                  <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                    Contact
+                    <br />
+                    <Link onClick={this.handleClose} className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      Contact
                     </Link>
-                </nav>
+
+                  </nav>
 
 
                 </Element>
               </Col>
-            <Col size="md-9 sm-9 xs-12">
+              <Col size="md-9 sm-9 xs-12" >
 
-{/* (this.state.open) ? 'open': ''   */}
-
-
-              <Element name="container" className="element" id="containerElement">
+                {/* (this.state.open) ? 'open': ''   */}
 
 
+                <Element name="container" className="element" id="containerElement" >
 
-                {/* </Col>
+
+
+                  {/* </Col>
 
                 <Col size="md-9 sm-12"> */}
 
-                <Element name="about" >
-                  <About className="about" winWidth={this.state.winWidth} />
+                  <Element name="about" >
+                    <About className="about" open={this.state.open} winWidth={this.state.winWidth} />
 
-                </Element>
-                <Element name="gallery" >
-                  <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
+                  </Element>
+                  <Element name="gallery" >
+                    <Gallery className="gallery" open={this.state.open} images={this.state.images} winWidth={this.state.winWidth} />
 
+                  </Element>
+                  <Element name="contact" >
+                    <Contact className="contact" open={this.state.open} socialIcons={this.state.socialIcons} />
+                    
+                  </Element>
                 </Element>
-                <Element name="contact" >
-                  <Contact className="contact" socialIcons={this.state.socialIcons} />
-
-                </Element>
-              </Element>
-            </Col>
+              </Col>
             </div>
           </Row>
         </Container>
 
-      <div style={{ overflow: "hidden" }} >
+        <div style={{ overflow: "hidden" }} >
 
 
-        <img className="One" src={this.state.images[0].src} />
+          <img className="One" src={this.state.images[0].src} />
 
 
-      </div>
+        </div>
       </div >
 
 
