@@ -62,15 +62,21 @@ label {
 }
 .follow {
     width: 25px;
-    margin: 8px 0;
+    position: relative;
+    margin: 0 10px;
     cursor: pointer;
+    text-align: center;
+
 
 }
 
 #socialdiv {
+    /* margin-left: 8vh; */
+    /* padding: 0 0 0 15px; */
     z-index: 999;
-    position: absolute;
-    right: 21px;
-    bottom: 125px;
-    width: 30px;
+    width: 100%;
+    /* position: absolute; */
+    float: left;
+
+    
 }

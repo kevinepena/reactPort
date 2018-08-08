@@ -20,7 +20,7 @@ class About extends Component {
 
                 <Row>
 
-                    <div id="about" className={this.props.open ? "blur" : ""} style={{
+                    <div id="about" className={this.props.open ? "blur" : "blur-n"} style={{
                         width: "100%",
                         backgroundColor: "linear-gradient(to bottom, #e7e7ef 0%, #75ACDD 100%)",
 
@@ -28,7 +28,7 @@ class About extends Component {
 
                         <h1 id="list-item-2">About Me</h1>
 
-                        <Col size="md-3 sm-12">
+                        <Col size="lg-3 md-4 sm-12">
                             {/* <Fade > */}
 
                             <img src={(this.props.winWidth >= 768) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
@@ -40,7 +40,7 @@ class About extends Component {
                             }} />
                             {/* </Fade> */}
                         </Col>
-                        <Col size="md-9 sm-12" style={{ overflow: "scroll" }}>
+                        <Col size="lg-9 md-8 sm-12" style={{ overflow: "scroll" }}>
                             {/* <Fade > */}
 
 

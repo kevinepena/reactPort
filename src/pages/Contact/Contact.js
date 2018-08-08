@@ -73,7 +73,8 @@ class Contact extends React.Component {
                         <Col size="md-8 sm-12" id="emailForm">
 
                             <h1 id="list-item-4">Shoot me a message </h1>
-                            <form >
+                            <form action="https://formspree.io/kevinpena160@gmail.com"
+                                method="POST">
                                 <Input
                                     value={this.state.name}
                                     onChange={this.handleChange}
@@ -157,8 +158,8 @@ class Contact extends React.Component {
                                     <img src={facebook} className="share" />
                                 </FacebookShareButton>
                             </Col>
-                      
-  
+
+
                         </footer>
                         {/* <footer id="followfooter" >
                             {this.props.socialIcons.map(icon => {

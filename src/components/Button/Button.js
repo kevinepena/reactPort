@@ -37,9 +37,9 @@ render() {
     <div>
 
       <Button style={{
-        position: "fixed",
-        bottom: "50px",
-        right: "0",
+        position: "absolute",
+        bottom: "0vh",
+        left: "0",
         // width: "35px",
         // height: "35px",
         backgroundColor: "rgb(255, 213, 220)",
@@ -68,9 +68,7 @@ render() {
 </svg>
 </Icon>
       </Button>
-<div id="socialdiv" style={{display: (this.state.open) ? "" : "none"}}>
-{this.props.socialIcons.map(icon => <span><a href={icon.link} target="_blank"><img src={icon.social} className="follow" /></a></span>)}
-  </div>
+
 
     </div>
   )
