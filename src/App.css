@@ -162,24 +162,6 @@ line-height: 0
   overflow: hidden;
 }
 
-/* .mobile {
-
-text-align: center;
-color: rgba(255, 255, 255, 0.6);
-text-decoration: none;
-font-family: 'Special Elite', cursive;
-display: block;
-position: relative;
-margin: 0 auto;
-font-size: 40px;
-
-}
-
-.mobile:visited {
-color: rgba(255, 255, 255, 0.6);
-text-decoration: none;
-font-family: 'Special Elite', cursive;
-} */
 
 .home {
   display: block;
@@ -187,12 +169,6 @@ font-family: 'Special Elite', cursive;
   font-size: 40px;
   position: relative;
 }
-
-/* .homelink:visited {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  font-family: 'Special Elite', cursive;
-} */
 
 .homelink {
   display: block;
@@ -222,10 +198,6 @@ a:hover, a:focus {
 
   color: none;
     text-decoration: none;
-  }
-
-  span:hover { 
-   
   }
 
   #mobile {
