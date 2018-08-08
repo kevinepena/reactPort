@@ -70,7 +70,7 @@ class Contact extends React.Component {
 
                 <Row >
                     <div id="form" >
-                        <Col size="md-6 sm-12" id="emailForm">
+                        <Col size="md-8 sm-12" id="emailForm">
 
                             <h1 id="list-item-4">Shoot me a message </h1>
                             <form >
@@ -103,18 +103,13 @@ class Contact extends React.Component {
                         </Col>
                         <br />
                         <br />
-                        <Col size="md-6 sm-12" id="giphyform">
+                        {/* <Col size="md-6 sm-12" id="giphyform">
 
 
                             {(this.state.gifs == "") ? (<img style={{ width: "168px" }} src="assets/pics/giphylogo.png" />) : (<div id="gifArea">{this.state.gifs.map(jif => <img src={jif.images.fixed_height.url} />)}</div>)}
 
                             <h1>Send me a gif</h1>
                             <form >
-                                {/* <label>
-                                        Search:
-            <input type="text" value={this.state.gif} onChange={this.handleChange} name="gif" />
-                                    </label>
-                                    <input type="submit" value="Submit" /> */}
 
                                 <Input
                                     value={this.state.gif}
@@ -136,7 +131,7 @@ class Contact extends React.Component {
 
                             </form>
 
-                        </Col>
+                        </Col> */}
                         <footer id="sharefooter">
                             <Col size="md-4 sm-12">
 

@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 // import { ParallaxProvider } from 'react-scroll-parallax';
-// import Nav from "./components/Nav";
+import Nav from "./components/Nav";
 import "./App.css";
 // import Transition from 'react-transition-group/Transition';
 // import Zoom from 'react-reveal/Zoom';
@@ -24,6 +24,7 @@ import github from "./svg/github-logo.svg";
 import instagram from "./svg/instagram.svg";
 import snapchat from "./svg/snapchat.svg";
 import Button from './components/Button';
+import { Col, Row, Container } from "./components/Grid";
 
 class App extends Component {
 
@@ -46,21 +47,21 @@ class App extends Component {
         src: ""
       })),
       active: false,
-      socialIcons: [ { social: github, link: "https://github.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" }, { social: instagram, link: "https://instagram.com/kevinepena" }, { social: facebook, link: "https://facebook.com/kevinpena0" }, 
-      // { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
+      socialIcons: [{ social: github, link: "https://github.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" },
+      // { social: instagram, link: "https://instagram.com/kevinepena" }, { social: facebook, link: "https://facebook.com/kevinpena0" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
       { social: twitter, link: "https://twitter.com/kevinepena" }],
       shareIcons: [facebook, linkedin, twitter],
-      time: 3000,
+      time: 1500,
       done: false
     };
     // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
-    this.handleSetActive = this.handleSetActive.bind(this);
-    this.handleSetInactive = this.handleSetInactive.bind(this);
+    // this.handleSetActive = this.handleSetActive.bind(this);
+    // this.handleSetInactive = this.handleSetInactive.bind(this);
   }
 
   componentWillMount() {
-    setInterval((this.state.time + 1000), 1000);
+
     this.state.images.forEach((image, index) => {
 
       const src = image.image
@@ -92,7 +93,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    
+    this.handleResize;
 
     Events.scrollEvent.register('begin', function () {
       // console.log("begin", arguments);
@@ -103,6 +104,12 @@ class App extends Component {
     });
 
     scrollSpy.update();
+
+    if (this.state.winWidth < 768) {
+      this.setState({ active: true })
+    } else {
+      this.setState({ active: false })
+    }
 
     window.addEventListener('resize', this.handleResize);
     // document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
@@ -120,6 +127,13 @@ class App extends Component {
     // this.setState({ firststop });
     // this.setState({ scrolly });
     this.setState({ winWidth })
+    console.log(winWidth)
+    console.log(this.state.active)
+    if (winWidth < 768) {
+      this.setState({ active: true })
+    } else {
+      this.setState({ active: false })
+    }
 
     // if (this.state.scrolly >= this.state.firststop) {
     //   this.setState({ show: true });
@@ -133,15 +147,16 @@ class App extends Component {
 
   }
 
-  handleSetActive() {
-    this.setState({ active: true })
+  // handleSetActive() {
 
-  }
+  //   this.setState({ active: true })
 
-  handleSetInactive() {
-    this.setState({ active: false })
+  // }
 
-  }
+  // handleSetInactive() {
+  //   this.setState({ active: false })
+
+  // }
 
 
   render() {
@@ -151,6 +166,74 @@ class App extends Component {
 
         {/* <Clouds images={this.state.images} style={{ overflow: "hidden" }} /> */}
 
+
+
+        <Container fluid>
+          <Nav
+
+            active={this.state.active}
+          />
+
+          <Row>
+
+            <div id="all"
+            >
+
+              <Button socialIcons={this.state.socialIcons} />
+              {/* <Button /> */}
+              <Col size="md-3 sm-3 xs-12">
+
+
+                <Element name="section" className={this.state.active
+                  ? "mobile"
+                  : ""} >
+                  <nav id="mainnav" >
+
+                    <Link className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      About
+                    </Link>
+                    <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      Gallery
+                    </Link>
+                    <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                      Contact
+                    </Link>
+                  </nav>
+
+
+                </Element>
+              </Col>
+              <Col size="md-9 sm-9 xs-12">
+
+
+
+
+                <Element name="container" className="element" id="containerElement">
+
+
+
+                  {/* </Col>
+
+                <Col size="md-9 sm-12"> */}
+
+                  <Element name="about" >
+                    <About className="about" winWidth={this.state.winWidth} />
+
+                  </Element>
+                  <Element name="gallery" >
+                    <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
+
+                  </Element>
+                  <Element name="contact" >
+                    <Contact className="contact" socialIcons={this.state.socialIcons} />
+
+                  </Element>
+                </Element>
+              </Col>
+            </div>
+          </Row>
+        </Container>
+
         <div style={{ overflow: "hidden" }} >
 
 
@@ -158,86 +241,6 @@ class App extends Component {
 
 
         </div>
-
-        <div id="all"
-        >
-
-          <Button socialIcons={this.state.socialIcons} />
-          {/* <Button /> */}
-
-          <div className="nav links" style={{ backgroundColor: (!this.state.active) ? "" : "rgba(255, 255, 255, 0.5)" }}
-          >
-
-
-            <Link className="navbar-brand" to="section" spy={true} smooth={true} duration={500} offset={-200} activeClass="active" containerId="containerElement" onSetActive={this.handleSetInactive} ignoreCancelEvents={true}>
-              <Typist
-                className="logospot"
-                cursor={{ show: false }}>
-                <Typist.Delay ms={this.state.time} />
-                <span id="name">Kevin Peña</span>
-                <Typist.Backspace count={10} delay={1500} />
-                <span id="dev" >Developer</span>
-                <Typist.Backspace count={9} delay={1500} />
-                <span id="ent">Entrepreneur</span>
-                <Typist.Backspace count={12} delay={1500} />
-                <span id="name">KP: </span>
-
-              </Typist>
-            </Link>
-            <div style={{ display: "inline", opacity: (!this.state.active) ? "0" : "1" }}>
-              <Link className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                <span><img src="assets/pics/bitmoji/contactbitmoji.png" className="popup" /></span>
-                {(this.state.winWidth >= 768) ? "Contact" : "."}
-              </Link>
-
-              <Link className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                <span><img src="assets/pics/bitmoji/gallerybitmoji.png" className="popup" /></span>
-                {(this.state.winWidth >= 768) ? "Gallery" : "."}
-              </Link>
-
-              <Link className="navbar-brand link" to="about" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
-                <span><img src="assets/pics/bitmoji/hellobitmoji.png" className="popup" /></span>
-                {(this.state.winWidth >= 768) ? "About" : "."}
-              </Link>
-            </div>
-          </div>
-
-
-          <Element name="container" className="element" id="containerElement">
-            <Element name="section">
-              <nav id="mainnav">
-
-
-                <Link className="homelink" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  About
-                 </Link>
-                <Link className="homelink" to="gallery" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  Gallery
-                  </Link>
-                <Link className="homelink" to="contact" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement">
-                  Contact
-            </Link>
-              </nav>
-
-
-            </Element>
-            <Element name="about" >
-              <About className="about" winWidth={this.state.winWidth} />
-
-            </Element>
-            <Element name="gallery" >
-              <Gallery className="gallery" images={this.state.images} winWidth={this.state.winWidth} />
-
-            </Element>
-            <Element name="contact" >
-              <Contact className="contact" socialIcons={this.state.socialIcons} />
-
-            </Element>
-          </Element>
-
-        </div>
-
-
       </div >
 
 

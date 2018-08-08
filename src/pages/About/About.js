@@ -32,8 +32,8 @@ class About extends Component {
                             {/* <Fade > */}
 
                             <img src={(this.props.winWidth >= 768) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
-                                width: "200px",
-                                height: (this.props.winWidth >= 768) ? "350px" : "200px",
+                                width: (this.props.winWidth >= 768) ? "200px" : "150px",
+                                height: (this.props.winWidth >= 768) ? "350px" : "150px",
                                 borderRadius: (this.props.winWidth >= 768) ? "20px" : "100px",
                                 display: "block",
                                 margin: "0 auto"
