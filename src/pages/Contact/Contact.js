@@ -39,9 +39,10 @@ class Contact extends React.Component {
     };
 
     handleEmailSubmit(event) {
-        alert('A name was submitted: ' + this.state.name);
-        event.preventDefault();
-        this.setState({ name: '', email: '', textarea: '' })
+        // alert('A name was submitted: ' + this.state.name);
+        // event.preventDefault();
+        // axios.post("https://formspree.io/kevinpena160@gmail.com", )
+        // this.setState({ name: '', email: '', textarea: '' })
     }
 
     handleGifSubmit(event) {
@@ -72,8 +73,10 @@ class Contact extends React.Component {
                     <div id="form" className={this.props.open ? "blur" : ""} >
                         <Col size="md-8 sm-12" id="emailForm">
 
-                            <h1 id="list-item-4">Shoot me a message </h1>
-                            <form action="https://formspree.io/kevinpena160@gmail.com"
+                            <h1 id="list-item-4">Need a website?
+                            <br />
+                            Shoot me a message </h1>
+                            <form action="https://formspree.io/your@email.com"
                                 method="POST">
                                 <Input
                                     value={this.state.name}
@@ -96,6 +99,7 @@ class Contact extends React.Component {
                                 <FormBtn
                                     disabled={!(this.state.name) || !(this.state.email) || !(this.state.textarea)}
                                     onClick={this.handleEmailSubmit}
+                                    type="submit" value="Send"
                                 >
                                     Submit
                                 </FormBtn>
