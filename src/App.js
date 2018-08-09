@@ -1,31 +1,18 @@
 import React, { Component } from "react";
-// import { NavLink } from 'react-router-dom';
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Clouds from "./pages/Clouds";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
-// import { ParallaxProvider } from 'react-scroll-parallax';
 import Nav from "./components/Nav";
 import "./App.css";
-// import Transition from 'react-transition-group/Transition';
-// import Zoom from 'react-reveal/Zoom';
-// import Fade from 'react-reveal/Fade';
-// import HiddenNav from "./components/HiddenNav";
-// import Section from "./components/Section";
-// import preloaderImage from "./logo.svg";
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-// import { Element, Link } from 'react-scroll';
-import Typist from "react-typist";
+import { Link, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 import facebook from "./svg/facebook.svg";
 import linkedin from "./svg/linkedin.svg";
 import twitter from "./svg/twitter.svg";
 import github from "./svg/github-logo.svg";
 import mail from "./svg/mail.svg"
 import instagram from "./svg/instagram.svg";
-import snapchat from "./svg/snapchat.svg";
-import Button from './components/Button';
 import { Col, Row, Container } from "./components/Grid";
+import { setInterval } from "core-js";
 
 class App extends Component {
 
@@ -49,23 +36,23 @@ class App extends Component {
       })),
       active: false,
       socialIcons: [{ social: github, link: "https://github.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" },
-      { social: instagram, link: "https://instagram.com/kevinepena" }, { social: mail, link: "mailto:kevinpena160@gmail.com" }, 
+      { social: instagram, link: "https://instagram.com/kevinepena" }, { social: mail, link: "mailto:kevinpena160@gmail.com" },
       // { social: facebook, link: "https://facebook.com/kevinpena0" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
       { social: twitter, link: "https://twitter.com/kevinepena" }],
       shareIcons: [facebook, linkedin, twitter],
-      time: 1500,
+      time: 2000,
       done: false,
       open: true
     };
-    // this.state = {vpHeight : this.all.current.clientHeight}
     this.handleResize = this.handleResize.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    // this.handleSetActive = this.handleSetActive.bind(this);
-    // this.handleSetInactive = this.handleSetInactive.bind(this);
+    this.addSec = this.addSec.bind(this)
   }
 
   componentWillMount() {
+
+    setInterval(this.addSec, 1000);
 
     this.state.images.forEach((image, index) => {
 
@@ -75,7 +62,7 @@ class App extends Component {
       const primaryImage = new Image() // create an image object programmatically
 
       primaryImage.onload = () => { // use arrow function here
-        console.log(`image #${index + 1} is loaded!`)
+        // console.log(`image #${index + 1} is loaded!`)
         const images = [...this.state.images] // copy images array from state
         images[index].src = src // adjust loaded image src
         clearInterval(this.state.time)
@@ -86,27 +73,18 @@ class App extends Component {
       primaryImage.src = src // do it after you set onload handler
     })
 
-    // axios
-    // .get('https://res.cloudinary.com/matsi/image/list/nica.json')
-    // .then(res => {
-    //     this.setState({ gallery: res.data.resources });
-    // });
-
   }
 
 
 
   componentDidMount() {
-    console.log(this.state.open)
 
-    this.handleResize;
+    this.handleResize();
 
     Events.scrollEvent.register('begin', function () {
-      // console.log("begin", arguments);
     });
 
     Events.scrollEvent.register('end', function () {
-      // console.log("end", arguments);
     });
 
     scrollSpy.update();
@@ -118,62 +96,41 @@ class App extends Component {
     }
 
     window.addEventListener('resize', this.handleResize);
-    // document.getElementById('all').addEventListener('scroll', this.updateNavOpacity);
+    // window.addEventListener('scroll', this.updateNavOpacity);
   }
 
+  addSec() {
+    // console.log(this.state.time)
+    this.setState({time: this.state.time + 1000})
+    // console.log(this.state.time)
+  }
+
+  scrollToTop() {
+    scroll.scrollToTop();
+  }
 
   handleResize() {
 
-    var winHeight = window.innerHeight;
+    // var winHeight = window.innerHeight;
     var winWidth = window.innerWidth;
-    const scrolly = window.scrollY;
-    const firststop = (winHeight * .15) * 5.65;
-
-
-    // this.setState({ firststop });
-    // this.setState({ scrolly });
+    // const scrolly = window.scrollY;
+    // const firststop = (winHeight * .15) * 5.65;
     this.setState({ winWidth })
-    console.log(winWidth)
-    console.log(this.state.active)
     if (winWidth < 768) {
       this.setState({ active: true })
     } else {
       this.setState({ active: false })
 
     }
-
-    // if (this.state.scrolly >= this.state.firststop) {
-    //   this.setState({ show: true });
-    // }
-
-    // if (this.state.scrolly <= this.state.firststop) {
-    //   this.setState({ show: false });
-    // }
-    // console.log(firststop);
-    // console.log(scrolly)
-
   }
-
-  // handleSetActive() {
-
-  //   this.setState({ active: true })
-
-  // }
-
-  // handleSetInactive() {
-  //   this.setState({ active: false })
-
-  // }
 
   handleOpen() {
     if (this.state.open === false) {
       this.setState({ open: true })
     }
-    else if (this.state.open == true) {
+    else if (this.state.open === true) {
       this.setState({ open: false })
     }
-
-    console.log(this.state.open)
   }
 
   handleClose() {
@@ -182,108 +139,90 @@ class App extends Component {
 
   render() {
 
+
+
     return (
       <div>
 
-        {/* <Clouds images={this.state.images} style={{ overflow: "hidden" }} /> */}
-
-
 
         <Container fluid>
-          {/* <button > */}
-          <svg className="cloud" onClick={this.handleOpen} style={{ display: (this.state.active) ? "" : "none" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395-299.99-418.63)" />
-          {/* <svg height="5px" id="Layer_1" style={{ enableBackground: "new 0 0 32 32"}} viewBox="0 0 32 32" width="5px" > */}
-          {/* <path id="hamburger" d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" /> */}
-          {/* </svg> */}
 
-          </svg>
-          {/* </button> */}
-          <Nav
+          <svg className="cloud" onClick={this.handleOpen} style={{ display: (this.state.active) ? "" : "none" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395-299.99-418.63)" />         </svg>
 
-            active={this.state.active}
-            
-          />
-
+          <Nav time={this.state.time} active={this.state.active} />
 
           <Row>
 
-            <div id="all"
-
-            >
-
-
-
-
-              {/* <Button /> */}
+            <div id="all">
               <Col size="md-3 sm-3 xs-12">
-
 
                 <Element name="section"
                   onClick={this.handleClose}
                   id={(this.state.active) ? "mobile" : ""}
-                  className={this.state.open ? "open" : "open-n"}
-                >
+                  className={this.state.open ? "open" : "open-n"}>
+
                   <nav id="mainnav" >
 
                     <Link onClick={this.handleClose} className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       About
                     </Link>
+
                     <br />
+
                     <Link onClick={this.handleClose} className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Gallery
                     </Link>
+
                     <br />
+
                     <Link onClick={this.handleClose} className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Contact
                     </Link>
 
                     <div id="socialdiv" style={{ bottom: (this.state.winWidth < 768) ? "2vh" : "-15vh" }}>
+
                       <br />
-                      {this.state.socialIcons.map(icon => <a href={icon.link} target={(icon.link === "mailto:kevinpena160@gmail.com") ? "" : "_blank"}><img src={icon.social} className="follow" /></a>)}
+
+                      {this.state.socialIcons.map((icon, index) => <a key={index} href={icon.link} target={(icon.link === "mailto:kevinpena160@gmail.com") ? "" : "_blank"}><img alt="" src={icon.social} className="follow" /></a>)}
+
                     </div>
+
                   </nav>
-                  {/* <Button socialIcons={this.state.socialIcons} open={this.state.open}/> */}
 
                 </Element>
+
               </Col>
+
               <Col size="md-9 sm-9 xs-12" >
-
-                {/* (this.state.open) ? 'open': ''   */}
-
 
                 <Element name="container" className="element" id="containerElement" >
 
-
-
-                  {/* </Col>
-
-                <Col size="md-9 sm-12"> */}
-
                   <Element name="about" >
                     <About className="about" open={this.state.open} winWidth={this.state.winWidth} />
-
                   </Element>
+
                   <Element name="gallery" >
                     <Gallery className="gallery" open={this.state.open} images={this.state.images} winWidth={this.state.winWidth} />
-
                   </Element>
+
                   <Element name="contact" >
                     <Contact className="contact" open={this.state.open} socialIcons={this.state.socialIcons} />
-
                   </Element>
+
                 </Element>
+
               </Col>
+
             </div>
+
           </Row>
+
         </Container>
 
         <div style={{ overflow: "hidden" }} >
-
-
-          <img className="One" src={this.state.images[0].src} />
-
-
+          <img alt="clouds" className="One" src={this.state.images[0].src} />
         </div>
+
       </div >
 
 

@@ -4,11 +4,6 @@ import "./Gallery.css"
 
 class Gallery extends Component {
 
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
 
         const works = [{ img: "assets/pics/work/work1.png", link: "https://freenica.herokuapp.com" }, { img: "assets/pics/work/work2.png", link: "https://auth1-81f49.firebaseapp.com/" }, { img: "assets/pics/work/work3.png", link: "https://kevinepena.github.io/wordGuessGame/" }, { img: "assets/pics/work/work4.png", link: "" }, { img: "assets/pics/work/work5.png", link: "" }]
@@ -22,7 +17,7 @@ class Gallery extends Component {
                     {works.map((image, index) => (
                         <div key={index} className="frame" style={{ display: ((this.props.winWidth > 768) ? "inline" : ""), margin: ((this.props.winWidth > 768) ? "40px" : "40px auto"), }} >
                             <a href={image.link} target="_blank">
-                                <img className="parallax" src={image.img} />
+                                <img className="parallax" src={image.img} alt="" />
                             </a>
                         </div>
                     ))}

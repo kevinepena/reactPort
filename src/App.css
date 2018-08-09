@@ -241,7 +241,3 @@ a:hover, a:focus {
   transition: all .3s ease-in-out;
 }
 
-#hamburger {
-  width: 5px;
-  display: inline;
-}

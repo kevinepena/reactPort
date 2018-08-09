@@ -1,9 +1,5 @@
-import React, { Component } from "react";
-import { Parallax, Background } from 'react-parallax';
-import Fade from 'react-reveal/Fade';
+import React from "react";
 import "./Contact.css";
-import Nav from "../../components/Nav";
-import { StickyContainer, Sticky } from 'react-sticky';
 import axios from "axios";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, FormBtn } from "../../components/Form";
@@ -11,8 +7,8 @@ import {
     FacebookShareButton,
     LinkedinShareButton,
     TwitterShareButton,
-    EmailShareButton,
-    EmailIcon
+    // EmailShareButton,
+    // EmailIcon
 
 } from 'react-share';
 
@@ -75,8 +71,8 @@ class Contact extends React.Component {
 
                             <h1 id="list-item-4">Need a website?
                             <br />
-                            Shoot me a message </h1>
-                            <form action="https://formspree.io/your@email.com"
+                                Shoot me a message </h1>
+                            <form action="https://formspree.io/kevinpena160@gmail.com"
                                 method="POST">
                                 <Input
                                     value={this.state.name}
@@ -140,38 +136,31 @@ class Contact extends React.Component {
                         <footer id="sharefooter">
                             <Col size="md-4 sm-12">
 
-                                Share my page 😎
+                                Share my page <span role="img" aria-label="cool emoji">😎</span>
 <br />
                                 <LinkedinShareButton
 
                                     url={shareUrl}
                                     title={title}>
-                                    <img src={linkedin} className="share" />
+                                    <img alt="linkedin" src={linkedin} className="share" />
                                 </LinkedinShareButton>
 
                                 <TwitterShareButton
 
                                     url={shareUrl}
                                     title={title} >
-                                    <img src={twitter} className="share" />
+                                    <img alt="twitter" src={twitter} className="share" />
                                 </TwitterShareButton>
                                 <FacebookShareButton
 
                                     url={shareUrl}
                                     quote={title} >
-                                    <img src={facebook} className="share" />
+                                    <img alt="facebook" src={facebook} className="share" />
                                 </FacebookShareButton>
                             </Col>
 
 
                         </footer>
-                        {/* <footer id="followfooter" >
-                            {this.props.socialIcons.map(icon => {
-                                <button>
-                                    <img src={icon} className="follow" />
-                                </button>
-                            })}
-                        </footer> */}
 
                     </div>
 

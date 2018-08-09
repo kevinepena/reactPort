@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Fade from 'react-reveal/Fade';
 import "./About.css";
 
 import { Col, Row, Container } from "../../components/Grid";
@@ -29,24 +28,19 @@ class About extends Component {
                         <h1 id="list-item-2">About Me</h1>
 
                         <Col size="lg-3 md-4 sm-12">
-                            {/* <Fade > */}
-
-                            <img src={(this.props.winWidth >= 768) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
+                            <img alt="me" src={(this.props.winWidth >= 768) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
                                 width: (this.props.winWidth >= 768) ? "200px" : "150px",
                                 height: (this.props.winWidth >= 768) ? "350px" : "150px",
                                 borderRadius: (this.props.winWidth >= 768) ? "20px" : "100px",
                                 display: "block",
                                 margin: "0 auto"
                             }} />
-                            {/* </Fade> */}
                         </Col>
-                        <Col size="lg-9 md-8 sm-12" style={{ overflow: "scroll" }}>
-                            {/* <Fade > */}
 
+                        <Col size="lg-9 md-8 sm-12" style={{ overflow: "scroll" }}>
 
                             <p id="bio" style={{
                                 float: "right",
-                                // height: "50vh",
                                 fontSize: "20px",
                                 textShadow: "20px",
                                 zIndex: "9",
@@ -54,7 +48,7 @@ class About extends Component {
                                 fontFamily: 'Raleway',
                                 overflow: "scroll"
                             }}> <br /> I am a young entrepreneur exploring my options and resources to fully exploit my future growth and further my knowledge. I have basic understanding of computer science through <span style={{ color: "#501214" }}>Texas State University</span>, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at <span style={{ color: "#bf5700" }}>UT Austin</span> which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn because I want to use my knowledge to be part of something bigger and make the world a better place.</p>
-                            {/* </Fade> */}
+     
                         </Col>
 
                         <Col size="md-9 sm-12" style={{ float: "right", color: "white" }}>
@@ -114,8 +108,6 @@ class About extends Component {
                     </div>
 
                 </Row>
-
-
 
             </Container >
         )
