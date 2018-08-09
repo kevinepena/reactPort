@@ -12,7 +12,7 @@ import github from "./svg/github-logo.svg";
 import mail from "./svg/mail.svg"
 import instagram from "./svg/instagram.svg";
 import { Col, Row, Container } from "./components/Grid";
-import { setInterval } from "core-js";
+// import { setInterval } from "core-js";
 
 class App extends Component {
 
@@ -52,7 +52,7 @@ class App extends Component {
 
   componentWillMount() {
 
-    setInterval(this.addSec, 1000);
+    // setInterval(this.addSec, 1000);
 
     this.state.images.forEach((image, index) => {
 

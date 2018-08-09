@@ -36,9 +36,32 @@ class Contact extends React.Component {
 
     handleEmailSubmit(event) {
         // alert('A name was submitted: ' + this.state.name);
-        // event.preventDefault();
-        // axios.post("https://formspree.io/kevinpena160@gmail.com", )
-        // this.setState({ name: '', email: '', textarea: '' })
+        event.preventDefault();
+
+        // $.ajax({
+        //     url: "https://formspree.io/FORM_ID",
+        //     method: "POST",
+
+        // });
+
+
+        // axios.post("https://formspree.io/kevinpena160@gmail.com", {
+        //     data: { message: `Name: ${this.state.name}
+        //     Email: ${this.state.email}
+        //     Body: ${this.state.textarea}` },
+        //     dataType: "json"
+        // })
+        axios({
+            method: 'post',
+            url: 'https://formspree.io/kevinpena160@gmail.com',
+            data: {
+                message: `Name: ${this.state.name}
+                Email: ${this.state.email}
+                Body: ${this.state.textarea}`
+            },
+            dataType: "json"
+        }).catch(err => console.log(err))
+        this.setState({ name: '', email: '', textarea: '' })
     }
 
     handleGifSubmit(event) {
@@ -137,7 +160,7 @@ class Contact extends React.Component {
                             <Col size="md-4 sm-12">
 
                                 Share my page <span role="img" aria-label="cool emoji">😎</span>
-<br />
+                                <br />
                                 <LinkedinShareButton
 
                                     url={shareUrl}
