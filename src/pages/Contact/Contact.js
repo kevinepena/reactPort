@@ -19,7 +19,7 @@ import twitter from "../../svg/twitter.svg";
 class Contact extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { name: '', email: '', textarea: '', gif: '', gifs: '' };
+        this.state = { message: '', email: '', textarea: '', gif: '', gifs: '' };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleEmailSubmit = this.handleEmailSubmit.bind(this);
@@ -38,30 +38,7 @@ class Contact extends React.Component {
         // alert('A name was submitted: ' + this.state.name);
         event.preventDefault();
 
-        // $.ajax({
-        //     url: "https://formspree.io/FORM_ID",
-        //     method: "POST",
 
-        // });
-
-
-        // axios.post("https://formspree.io/kevinpena160@gmail.com", {
-        //     data: { message: `Name: ${this.state.name}
-        //     Email: ${this.state.email}
-        //     Body: ${this.state.textarea}` },
-        //     dataType: "json"
-        // })
-        axios({
-            method: 'post',
-            url: 'https://formspree.io/kevinpena160@gmail.com',
-            data: {
-                message: `Name: ${this.state.name}
-                Email: ${this.state.email}
-                Body: ${this.state.textarea}`
-            },
-            dataType: "json"
-        }).catch(err => console.log(err))
-        this.setState({ name: '', email: '', textarea: '' })
     }
 
     handleGifSubmit(event) {
@@ -95,7 +72,9 @@ class Contact extends React.Component {
                             <h1 id="list-item-4">Need a website?
                             <br />
                                 Shoot me a message </h1>
-                            <form action="https://formspree.io/kevinpena160@gmail.com"
+
+
+                            {/* <form action="https://formspree.io/kevinpena160@gmail.com"
                                 method="POST">
                                 <Input
                                     value={this.state.name}
@@ -122,11 +101,23 @@ class Contact extends React.Component {
                                 >
                                     Submit
                                 </FormBtn>
+                            </form> */}
+
+                            <form method="POST" action="https://formspree.io/kevinpena160@gmail.com" className="form-group">
+                                <input onChange={this.handleChange} type="email" name="email" placeholder="Your email" className="form-control" />
+                                <textarea onChange={this.handleChange} name="message" placeholder="Questions, Comments, Inquiries?" className="form-control" />
+                                <button
+                                    disabled={!(this.state.message) || !(this.state.email)}
+                                    type="submit" value="Send" className="btn">Send</button>
+                                <input type="text" name="_gotcha" style={{ display: "none" }} />
+                                <input type="hidden" name="_next" value="https://kevinpena.io/#contact" />
                             </form>
 
                         </Col>
                         <br />
                         <br />
+
+
                         {/* <Col size="md-6 sm-12" id="giphyform">
 
 

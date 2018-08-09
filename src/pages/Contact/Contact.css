@@ -11,12 +11,9 @@
     width: 50%;
 } */
 
-input[type="text"], textarea {
-    font-family: 'Special Elite';
-    color: white;
-    background-color: black;
-    border: none;
-    height: 20px;
+.btn {
+    float: right;
+background-color: rgb(38, 61, 84);
 
 }
 
