@@ -166,15 +166,16 @@ class App extends Component {
                     <Link onClick={this.handleClose} className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       About
                     </Link>
-
+ <br />
+{/*<br /> */}
                     <br />
 
                     <Link onClick={this.handleClose} className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Gallery
                     </Link>
-
                     <br />
-
+{/* <br />
+                    <br /> */}
                     <Link onClick={this.handleClose} className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Contact
                     </Link>

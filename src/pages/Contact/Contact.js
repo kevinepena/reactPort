@@ -2,7 +2,7 @@ import React from "react";
 import "./Contact.css";
 import axios from "axios";
 import { Col, Row, Container } from "../../components/Grid";
-import { Input, FormBtn } from "../../components/Form";
+// import { Input, FormBtn } from "../../components/Form";
 import {
     FacebookShareButton,
     LinkedinShareButton,
