@@ -27,14 +27,13 @@ class Gallery extends Component {
                                 <span className="content">
                                     <h4>{image.link.slice(8)} </h4>
                                     <h5> Technologies Used </h5>
-                                    {console.log(image.tech)}
-                                    <p className="tech"> {image.tech.map(item => ` ${item} |`)}
+                                    <p className="tech"> {image.tech.map((item) => ` ${item} |`)}
                                     </p>
                                     <p className="about">
                                         {image.about}
                                     </p>
                                     <ul className="list">
-                                        {image.list.map(item => <li> {item} </li>)}
+                                        {image.list.map((item, index) => <li key={index}> {item} </li>)}
                                     </ul>
                                 </span>
                                 {/* </div> */}
