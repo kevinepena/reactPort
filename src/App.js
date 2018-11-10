@@ -10,7 +10,7 @@ import linkedin from "./svg/linkedin.svg";
 import twitter from "./svg/twitter.svg";
 import github from "./svg/github-logo.svg";
 import mail from "./svg/mail.svg"
-import instagram from "./svg/instagram.svg";
+// import instagram from "./svg/instagram.svg";
 import { Col, Row, Container } from "./components/Grid";
 // import { setInterval } from "core-js";
 
@@ -30,15 +30,17 @@ class App extends Component {
       show: false,
       winWidth: window.innerWidth,
       winHeight: window.height,
-      images: this.props.images.map(image => ({
-        image,
-        src: ""
-      })),
+      // images: this.props.images.map(image => ({
+      //   image,
+      //   src: ""
+      // })),
       active: false,
       socialIcons: [{ social: github, link: "https://github.com/kevinepena" }, { social: linkedin, link: "https://linkedin.com/in/kevinepena" },
-      { social: instagram, link: "https://instagram.com/kevinepena" }, { social: mail, link: "mailto:kevinpena160@gmail.com" },
-      // { social: facebook, link: "https://facebook.com/kevinpena0" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
-      { social: twitter, link: "https://twitter.com/kevinepena" }],
+      { social: twitter, link: "https://twitter.com/kevinepena" },
+      // { social: instagram, link: "https://instagram.com/kevinepena" }, 
+      { social: mail, link: "mailto:kevinpena160@gmail.com" },
+        // { social: facebook, link: "https://facebook.com/kevinpena0" }, { social: snapchat, link: "https://www.snapchat.com/add/kevinn_pena" }, 
+      ],
       shareIcons: [facebook, linkedin, twitter],
       time: 2000,
       done: false,
@@ -47,31 +49,28 @@ class App extends Component {
     this.handleResize = this.handleResize.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.addSec = this.addSec.bind(this)
   }
+
 
   componentWillMount() {
 
-    // setInterval(this.addSec, 1000);
+    // this.state.images.forEach((image, index) => {
 
-    this.state.images.forEach((image, index) => {
+    //   const src = image.image
+    //   // const { image } = image // get image primary src
 
-      const src = image.image
-      // const { image } = image // get image primary src
+    //   const primaryImage = new Image() // create an image object programmatically
 
-      const primaryImage = new Image() // create an image object programmatically
-
-      primaryImage.onload = () => { // use arrow function here
-        // console.log(`image #${index + 1} is loaded!`)
-        const images = [...this.state.images] // copy images array from state
-        images[index].src = src // adjust loaded image src
-        clearInterval(this.state.time)
-        this.setState({
-          images,
-        })
-      }
-      primaryImage.src = src // do it after you set onload handler
-    })
+    //   primaryImage.onload = () => { // use arrow function here
+    //     // console.log(`image #${index + 1} is loaded!`)
+    //     const images = [...this.state.images]; // copy images array from state
+    //     images[index].src = src;// adjust loaded image src
+    //     this.setState({
+    //       images,
+    //     })
+    //   }
+    //   primaryImage.src = src // do it after you set onload handler
+    // })
 
   }
 
@@ -97,12 +96,6 @@ class App extends Component {
 
     window.addEventListener('resize', this.handleResize);
     // window.addEventListener('scroll', this.updateNavOpacity);
-  }
-
-  addSec() {
-    // console.log(this.state.time)
-    this.setState({time: this.state.time + 1000})
-    // console.log(this.state.time)
   }
 
   scrollToTop() {
@@ -142,41 +135,50 @@ class App extends Component {
 
 
     return (
-      <div>
 
 
-        <Container fluid>
+      <div id="all">
 
-          <svg className="cloud" onClick={this.handleOpen} style={{ display: (this.state.active) ? "" : "none" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" ><path d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925" fill="#fff" transform="matrix(.77976 0 0 .78395-299.99-418.63)" />         </svg>
+        <div style={{ overflow: "hidden" }} >
+          <img alt="clouds" className="One" src={"assets/pics/background/cloudshorbestpng.jpg"} />
 
-          <Nav time={this.state.time} active={this.state.active} />
+        </div>
 
-          <Row>
 
-            <div id="all">
-              <Col size="md-3 sm-3 xs-12">
+        <div id="content">
+          <Nav time={this.state.time} active={this.state.active} open={this.state.open} handleOpen={this.handleOpen} />
 
-                <Element name="section"
+          <Container fluid>
+
+            {/* <div style={{ overflow: "hidden" }} > */}
+            {/* </div> */}
+
+
+
+            <Row>
+
+              {/* <div id="all"> */}
+              <Col size="lg-3 md-3 sm-12 xs-12">
+
+                <div name="section"
                   onClick={this.handleClose}
                   id={(this.state.active) ? "mobile" : ""}
                   className={this.state.open ? "open" : "open-n"}>
 
                   <nav id="mainnav" >
 
-                    <Link onClick={this.handleClose} className="navbar-brand link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                    <Link onClick={this.handleClose} className=" link" to="about" spy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       About
                     </Link>
- <br />
-{/*<br /> */}
+                    <br />
                     <br />
 
-                    <Link onClick={this.handleClose} className="navbar-brand link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                    <Link onClick={this.handleClose} className=" link" to="gallery" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Gallery
                     </Link>
                     <br />
-{/* <br />
-                    <br /> */}
-                    <Link onClick={this.handleClose} className="navbar-brand link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
+                    <br />
+                    <Link onClick={this.handleClose} className=" link" to="contact" spy={true} hashSpy={true} smooth={true} duration={500} offset={-50} activeClass="active" containerId="containerElement" onSetActive={this.handleSetActive} ignoreCancelEvents={true}>
                       Contact
                     </Link>
 
@@ -190,11 +192,11 @@ class App extends Component {
 
                   </nav>
 
-                </Element>
+                </div>
 
               </Col>
 
-              <Col size="md-9 sm-9 xs-12" >
+              <Col size="lg-9 md-9 sm-12 xs-12" classes="zerop">
 
                 <Element name="container" className="element" id="containerElement" >
 
@@ -214,17 +216,21 @@ class App extends Component {
 
               </Col>
 
-            </div>
+              {/* </div> */}
 
-          </Row>
+            </Row>
 
-        </Container>
 
-        <div style={{ overflow: "hidden" }} >
-          <img alt="clouds" className="One" src={this.state.images[0].src} />
+            {/* <img alt="clouds" className="One" src={this.state.images[0].src} /> */}
+
+
+          </Container>
         </div>
 
-      </div >
+      </div>
+
+
+
 
 
     )

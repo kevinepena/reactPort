@@ -1,0 +1,14 @@
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+style="enable-background:new 0 0 16 16;" xml:space="preserve" 	  width="20px" height="30px" viewBox="0 0 16 16">
+<!-- <circle style="fill:#34495ecc;" cx="27" cy="27" r="27"/> -->
+<line style="fill:none;stroke:#FFFFFF;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;" x1="0" y1="4" x2="15" y2="4"/>
+<line style="fill:none;stroke:#FFFFFF;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;" x1="0" y1="9" x2="15" y2="9" />
+<line style="fill:none;stroke:#FFFFFF;stroke-width:1;stroke-linecap:round;stroke-miterlimit:10;" x1="0" y1="14" x2="15" y2="14"/>
+</svg>
+
+            <!-- <svg className="burger"
+              >
+              <line style={{ fill: "none", stroke: "#FFFFFF", strokeWidth: "2", strokeLinecap: "round", strokeMiterlimit: "10" }} x1="0" y1="20" x2="18" y2="20" />
+              <line style={{ fill: "none", stroke: "#FFFFFF", strokeWidth: "2", strokeLinecap: "round", strokeMiterlimit: "10" }} x1="0" y1="13" x2="18" y2="13" />
+              <line style={{ fill: "none", stroke: "#FFFFFF", strokeWidth: "2", strokeLinecap: "round", strokeMiterlimit: "10" }} x1="0" y1="27" x2="18" y2="27" />
+            </svg> -->
