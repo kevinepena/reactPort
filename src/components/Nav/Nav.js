@@ -7,7 +7,7 @@ import "./Nav.css";
 const Nav = props => {
     return (
 
-        <nav className="nav links" style={{ backgroundColor: (!props.active) ? "" : "rgba(255, 255, 255, 0.5)" }}
+        <nav className="nav links" style={{ backgroundColor: (!props.active) ? "" : "rgba(255, 255, 255, 0.9)" }}
         >
             <a className={props.active ? "logospot blue dev" : "logospot white dev"}>KP</a>
 

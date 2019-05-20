@@ -25,7 +25,7 @@ class About extends Component {
                 <Row>
 
                     <Col size="lg-4 md-12 sm-12">
-                        <img alt="me" src={(this.props.winWidth >= 992) ? "assets/pics/about/medesktop.png" : "assets/pics/about/memobile.png"} id="me" style={{
+                        <img alt="me" src={(this.props.winWidth >= 992) ? "https://res.cloudinary.com/kevinpena/image/upload/v1540315016/portfolio/medesktop.png" : "https://res.cloudinary.com/kevinpena/image/upload/v1540315015/portfolio/memobile.png"} id="me" style={{
                             width: (this.props.winWidth >= 992) ? "200px" : "150px",
                             height: (this.props.winWidth >= 992) ? "350px" : "150px",
                             borderRadius: (this.props.winWidth >= 992) ? "20px" : "100px",
@@ -44,7 +44,7 @@ class About extends Component {
                             color: "#34495E",
                             fontFamily: 'Raleway',
                             overflow: "scroll"
-                        }}> <br /> I am a young entrepreneur exploring my options and resources to fully exploit my future growth and further my knowledge. I have fundamental understanding of computer science through <span style={{ color: "#501214" }}>Texas State University</span>, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at <span style={{ color: "#bf5700" }}>UT Austin</span> which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn because I want to use my knowledge to be part of something bigger and make the world a better place.</p>
+                        }}> <br /> I am web devloper exploring my options and resources to fully exploit my future growth and further my knowledge. I have fundamental understanding of computer science through <span style={{ color: "#501214" }}>Texas State University</span>, and knowledge of other programming languages such as Javascript, C++, and Swift through online self learning. I have recently completed The Coding Bootcamp at <span style={{ color: "#bf5700" }}>UT Austin</span> which has given me the hands-on experience in full-stack development. I spend my time now developing custom websites (both front and back end) but would enjoy being part of a team and working with others. I strive to learn because I want to use my knowledge to be part of something bigger and make the world a better place.</p>
 
                     </Col>
                 </Row>

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+// import axios from 'axios';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import Nav from "./components/Nav";
 import "./App.css";
-import { Link, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll'
 import facebook from "./svg/facebook.svg";
 import linkedin from "./svg/linkedin.svg";
 import twitter from "./svg/twitter.svg";
 import github from "./svg/github-logo.svg";
-import mail from "./svg/mail.svg"
+import mail from "./svg/mail.svg";
+
 // import instagram from "./svg/instagram.svg";
 import { Col, Row, Container } from "./components/Grid";
 // import { setInterval } from "core-js";
@@ -77,6 +79,7 @@ class App extends Component {
 
 
   componentDidMount() {
+    console.log(this.state.backimg)
 
     this.handleResize();
 
@@ -96,6 +99,7 @@ class App extends Component {
 
     window.addEventListener('resize', this.handleResize);
     // window.addEventListener('scroll', this.updateNavOpacity);
+
   }
 
   scrollToTop() {
@@ -118,17 +122,15 @@ class App extends Component {
   }
 
   handleOpen() {
-    if (this.state.open === false) {
-      this.setState({ open: true })
-    }
-    else if (this.state.open === true) {
-      this.setState({ open: false })
-    }
+    this.setState({ open: !this.state.open })
+
   }
 
   handleClose() {
     this.setState({ open: false })
   }
+
+
 
   render() {
 
@@ -140,8 +142,13 @@ class App extends Component {
       <div id="all">
 
         <div style={{ overflow: "hidden" }} >
-          <img alt="clouds" className="One" src={"assets/pics/background/cloudshorbestpng.jpg"} />
-
+          {/* <img alt="clouds" className="One" src={"https://res.cloudinary.com/kevinpena/image/upload/q_50/v1540315018/portfolio/cloudshor.png"} /> */}
+          <img alt="clouds" className="One" src={"assets/pics/background/back.jpg"} />
+          {/* <img src={this.state.backimg ? this.state.backimg.urls.raw : ''} alt={this.state.backimg ? this.state.backimg.description : ''} style={{
+            height: '100vh',
+            width: '100%',
+            objectFit: 'cover' }} /> */}
+      
         </div>
 
 
@@ -153,10 +160,7 @@ class App extends Component {
             {/* <div style={{ overflow: "hidden" }} > */}
             {/* </div> */}
 
-
-
             <Row>
-
               {/* <div id="all"> */}
               <Col size="lg-3 md-3 sm-12 xs-12">
 
@@ -198,7 +202,7 @@ class App extends Component {
 
               <Col size="lg-9 md-9 sm-12 xs-12" classes="zerop">
 
-                <Element name="container" className="element" id="containerElement" >
+                <Element name="container" className={this.state.active ? "element mob" : "element"} id="containerElement" >
 
                   <Element name="about" >
                     <About className="about" open={this.state.open} winWidth={this.state.winWidth} />

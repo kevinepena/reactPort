@@ -5,9 +5,42 @@ import "./Gallery.css"
 
 class Gallery extends Component {
 
+    componentWillMount() {
+        // document.querySelectorAll('.content').forEach(img => (img.addEventListener('mousever', e => {console.log(e)})))
+    }
+
+    mouseEnter = e => {
+        e.persist();
+        // console.log(e.pageX);
+        // console.log(e.pageY);
+        console.log(e.clientX);
+        console.log(e.clientY);
+        console.log(e.movementX);
+        console.log(e.movementY);
+
+    };
+
+    mouseLeave = e => {
+        console.log(e);
+    }
+
     render() {
 
         const works = [
+            {
+                img: "portfolio/saltedpineapple.png",
+                link: "https://store.kevinpena.io/",
+                tech: ["React", "Apollo" , "Graphql-yoga", "Prisma"],
+                about: "E-Commerce Platform",
+                list: ["Implemented authentication", "Secure checkout with Stripe", "Configured for SMTP", "Incorporated Cloudinary for image upload"]
+            },
+            {
+                img: "portfolio/blog.png",
+                link: "https://blog.kevinpena.io",
+                tech: ["React", "Apollo" , "Graphql-yoga", "Prisma"],
+                about: "Personal Blog",
+                list: ["Implemented authentication", "Mobile friendly", "Clean and modern UI"]
+            },
             {
                 img: "portfolio/work1.png",
                 link: "https://freenica.herokuapp.com",
@@ -15,20 +48,9 @@ class Gallery extends Component {
                 about: "App for displaying trending information",
                 list: ["Intergrated Auth0 with different level scopes", "Implemented Twitter API and socket.io to stream live tweets", "Full CRUD capabilities with MongoDB", "Uses Cloudinary API to host pictures", "Integrated Firebase database for extra secure storage", "Mobile Responsive Layout"]
             },
-            {
-                img: "portfolio/work2.png",
-                link: "https://auth1-81f49.firebaseapp.com/",
-                tech: ["Firebase", "Javascript", "jQuery"],
-                about: "Platform for viewing astrology",
-                list: ["Uses firebase authentication", "Integrated astrology and NASA API to provide user with astrology information"]
-            },
-            {
-                img: "portfolio/work3.png",
-                link: "https://kevinepena.github.io/wordGuessGame/",
-                tech: ["Javascript", "CSS", "jQuery"],
-                about: "Game to test Javascript code efficiency",
-                list: []
-            }];
+        ];
+
+
 
         return (
             <div className={this.props.open ? "fixed blur" : "fixed"} style={{ height: ((this.props.winWidth > 768) ? "100vh" : "") }}>
@@ -48,7 +70,8 @@ class Gallery extends Component {
 
                                     <Image publicId={image.img} className="parallax" width="350" />
 
-                                    <span className="content">
+                                    <span className="content" onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+
                                         <h4>{image.link.slice(8)} </h4>
                                         <h5> Technologies Used </h5>
                                         <p className="tech"> {image.tech.map((item) => ` ${item} |`)}

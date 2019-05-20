@@ -56,14 +56,14 @@ class Contact extends React.Component {
 
     render() {
 
-        const shareUrl = 'https://kevinpena.herokuapp.com';
+        const shareUrl = 'https://kevinpena.io';
         const title = "Check out Kevin's ReactJS portfolio!";
 
         return (
 
 
 
-            <Container fluid   >
+            <Container fluid classes="zerop"  >
 
                 <Row >
                     <div id="form" className={this.props.open ? "blur" : ""} >
@@ -104,7 +104,7 @@ class Contact extends React.Component {
                             </form> */}
 
                             <form method="POST" action="https://formspree.io/kevinpena160@gmail.com" className="form-group">
-                                <input onChange={this.handleChange} type="email" name="email" placeholder="Your email" className="form-control" />
+                                <input onChange={this.handleChange} type="email" name="email" placeholder="Your email" className="form-control" id="email" />
                                 <textarea onChange={this.handleChange} name="message" placeholder="Questions, Comments, Inquiries?" className="form-control" />
                                 <button
                                     disabled={!(this.state.message) || !(this.state.email)}
