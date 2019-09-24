@@ -79,7 +79,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    console.log(this.state.backimg)
 
     this.handleResize();
 
